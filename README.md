@@ -1,9 +1,52 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=BDBDC8&height=150&section=header" />
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=choco5958)](https://github.com/anuraghazra/github-readme-stats)
+## Hi! I'm Daehyeon!
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=choco5958)](https://github.com/anuraghazra/github-readme-stats)
 
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=choco5958&hide=contribs,prs&show_icons=true&theme=graywhite)
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=BDBDC8&height=150&section=footer" />
+
+## 안녕하세요! 개발자 한대현 입니다.😀
+
+
+
+![](https://github-stats-alpha.vercel.app/api/?username=choco5958&cc=000&tc=fff&ic=fff&bc=000)
+
+## 🛠 Skill 🛠 
+
+### Backend
+<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+
+### FrontEnd
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+
+### DevOps
+<img src="https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"> <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white">
+
+## Project 📒 
+
+### [???]
+
+-
+
+[Details](https://???)
+
+
+## Education ✏
+- 2024.02 방송통신대 컴퓨터과학과 편입
+- 2020.12 Hello World! 프로그래밍 공부 시작!
+- 2020.02 배재대학교 러시아학과 졸업
+
+## Book Group Study
+- 
+
+## Certification
+-
+
+## Algorithm Study
+- 백준
+
+<img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=choco5958">
+
+[??? 달성](https://solved.ac/profile/choco5958)
+
+- 프로그래머스
+  - LV??? 배지 취득
