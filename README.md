@@ -22,11 +22,11 @@
 ### DevOps
 <img src="https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"> <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white">
 
-## Project 📒 
+//## Project 📒 
 
-### [???]
+//### [???]
 
--
+//-
 
 [Details](https://???)
 
@@ -36,18 +36,18 @@
 - 2020.12 Hello World! 프로그래밍 공부 시작!
 - 2020.02 배재대학교 러시아학과 졸업
 
-## Book Group Study
-- 
+//## Book Group Study
+//- 
 
-## Certification
--
+//## Certification
+//-
 
-## Algorithm Study
-- 백준
+//## Algorithm Study
+//- 백준
 
-<img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=choco5958">
+//<img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=choco5958">
 
-[??? 달성](https://solved.ac/profile/choco5958)
+//[??? 달성](https://solved.ac/profile/choco5958)
 
-- 프로그래머스
-  - LV??? 배지 취득
+//- 프로그래머스
+//  - LV??? 배지 취득
