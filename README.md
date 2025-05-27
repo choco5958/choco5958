@@ -9,23 +9,23 @@
 ## 💻 기술 스택
 
 **Frontend**  
-`JavaScript` `TypeScript` `React` `Vue.js` `Next.js`
+`JavaScript` `TypeScript` `React.js` `Vue.js` `Next.js`
 
 **Backend**  
-`PHP` `MySQL` `MongoDB`
+`PHP` `MySQL` `ORACLE` `MongoDB`
 
 **DevOps & 기타**  
-`AWS` `Git` `Redis` `Zustand`
+`Linux` `AWS` `Git` `GitLab` `Redis` `Zustand`
 
 ---
 
 ## 📌 경력 요약
 
-| 회사명      | 직책 | 기간             | 주요 기술                                   |
-|-------------|------|------------------|---------------------------------------------|
-| 인라이플     | 주임 | 2024.10 ~ 재직 중 | PHP, MySQL, JS, TS, React, Vue.js, Next.js |
-| 파이어볼트   | 사원 | 2022.01 ~ 2024.06 | PHP, MySQL, React, AWS, Redis              |
-| 디휴브      | 사원 | 2021.06 ~ 2021.11 | PHP, MySQL, JS, MongoDB                     |
+| 회사명      | 직책 | 기간             | 주요 기술                                       |
+|-------------|------|------------------|-------------------------------------------------|
+| 인라이플     | 주임 | 2024.10 ~ 재직 중 | PHP, MySQL, JS, TS, React.js, Vue.js, Next.js  |
+| 파이어볼트   | 사원 | 2022.01 ~ 2024.06 | PHP, MySQL, React.js, AWS, Redis               |
+| 디휴브      | 사원 | 2021.06 ~ 2021.11 | PHP, MySQL, JS, MongoDB                        |
 
 ---
 
