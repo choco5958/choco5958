@@ -1,61 +1,68 @@
-# 👋 안녕하세요, 끊임없이 개선하는 개발자 **한대현**입니다
+# 👋 안녕하세요, 끊임없이 개선하는 개발자 **한대현**입니다.
+
+<p align="left">
+  <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white"/>
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
+</p>
 
 저는 끊임없이 배우고 성장하며, 새로운 도전을 즐기는 **웹 풀스택 개발자**입니다.  
-효율적인 시스템과 사용자 중심의 서비스를 구현하는 데 관심이 많으며,  
-**기술 부채 해소**, **코드의 복잡도 감소**, **사용자 경험 개선**에 집중하고 있습니다.
+**기술 부채 해소**, **코드의 복잡도 감소**, **사용자 경험 개선**이라는 세 가지 원칙을 바탕으로 서비스를 구현합니다.
 
 ---
 
-## 💻 기술 스택
+## 🚀 Projects & Side Hustles
 
-**Frontend**  
-`JavaScript` `TypeScript` `React.js` `Vue.js` `Next.js`
+현재 실무 외에도 전문가 매칭 플랫폼 및 비즈니스 툴 서비스를 직접 설계하고 운영하고 있습니다.
 
-**Backend**  
-`PHP` `MySQL` `ORACLE` `MongoDB`
+* **[딱딜 (DDakDeal)](https://ddakdeal.com)**: 전문가 매칭 플랫폼 
+* **[FastBizkit](https://fastbizkit.com)**: 비즈니스 툴 서비스 
 
-**DevOps & 기타**  
-`Linux` `AWS` `Git` `GitLab` `Redis` `Zustand`
 
 ---
 
-## 📌 경력 요약
+## 🛠 Tech Stack
 
-| 회사명      | 직책 | 기간             | 주요 기술                                       |
-|-------------|------|------------------|-------------------------------------------------|
-| 인라이플     | 주임 | 2024.10 ~ 재직 중 | PHP, MySQL, JS, TS, React.js, Vue.js, Next.js  |
-| 파이어볼트   | 사원 | 2022.01 ~ 2024.06 | PHP, MySQL, React.js, AWS, Redis               |
-| 디휴브      | 사원 | 2021.06 ~ 2021.11 | PHP, MySQL, JS, MongoDB                        |
+### Frontend
+`JavaScript` `TypeScript` `React.js` `Vue.js` `Next.js` `Zustand`
 
----
+### Backend
+`PHP` `MySQL` `ORACLE` `MongoDB` `Redis`
 
-## 🧠 저에 대해 한 줄로 소개하자면?
-
-> “**불가능은 없다.** 해결책은 반드시 존재한다는 신념으로, 끊임없이 도전하고 성장하는 개발자입니다.”
+### DevOps & Infrastructure
+`Linux` `AWS` `Git` `GitLab` `Docker`
 
 ---
 
-## ✨ 제가 중요하게 생각하는 가치
+## 📌 Experience
 
-- **끊임없는 개선**: 기능 확장과 코드 리팩토링을 통해 지속적으로 더 나은 시스템을 만들어갑니다.
-- **협업과 커뮤니케이션**: 기획자, 디자이너, 사용자와의 적극적인 소통으로 더 나은 서비스를 설계합니다.
-- **사용자 경험 중심**: 단순히 작동하는 것이 아니라, **편리하고 만족스러운 경험**을 제공하는 개발을 지향합니다.
-
----
-
-## 🎯 앞으로의 목표
-
-- **전문성 있는 풀스택 개발자**로 성장
-- **기술 부채 해소** 및 **효율적인 시스템 설계**
-- **사용자 중심 서비스** 개발
+| 기간 | 회사 | 직책 | 주요 업무 |
+| :--- | :--- | :--- | :--- |
+| 2024.10 ~ 현재 | **인라이플** | 주임 | PHP, React, Next.js 기반 서비스 고도화 및 유지보수 |
+| 2022.01 ~ 2024.06 | **파이어볼트** | 사원 | PHP 기반 백엔드 및 AWS 인프라 관리 |
+| 2021.06 ~ 2021.11 | **디휴브** | 사원 | 풀스택 개발 및 데이터베이스 설계 |
 
 ---
 
-## 📬 연락처
+## 🧠 Philosophy & Value
 
-- Email: choco5958@naver.com  
-- GitHub: [https://github.com/choco5958](https://github.com/choco5958)
+> **“불가능은 없다. 해결책은 반드시 존재한다.”**
+
+* **끊임없는 개선**: 지속적인 리팩토링을 통해 더 단단한 시스템을 만듭니다.
+* **협업의 가치**: 기획자, 디자이너와 원활하게 소통하며 최고의 결과를 도출합니다.
+* **사용자 중심**: 기술적 완결성을 넘어, 사용자가 편리함을 느끼는 경험을 지향합니다.
 
 ---
 
-감사합니다! 🙇‍♂️
+## 📬 Contact & Links
+
+* **Email**: choco5958@naver.com
+
+---
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=choco5958&show_icons=true&theme=radical" alt="Daehyun's GitHub Stats" />
+</p>
