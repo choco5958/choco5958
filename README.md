@@ -62,7 +62,3 @@
 * **Email**: choco5958@naver.com
 
 ---
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=choco5958&show_icons=true&theme=radical" alt="Daehyun's GitHub Stats" />
-</p>
