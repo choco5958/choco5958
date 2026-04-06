@@ -12,9 +12,9 @@
 
 ### 📈 By the Numbers
 
-| 💼 Career | 🚀 Production Projects | 🧩 Private Repos | 🔄 Updated (6M) | 🌐 Live Services |
+| 💼 Career | 🚀 Production Projects | 🟢 Service Live | 🛠️ In Development | 🔴 Service Ended |
 | :-------: | :--------------------: | :--------------: | :-------------: | :--------------: |
-| **4y 6m** |         **6+**         |      **14**      |     **10**      |      **3**       |
+| **4y 6m** |         **6+**         |      **7+**      |      **1**      |      **1**       |
 
 </div>
 
@@ -45,21 +45,21 @@
 
 ### 1) 인라이플
 
-#### [iSend](https://isend.co.kr) - CRM 기반 타겟팅 메시징
+#### [iSend](https://isend.co.kr) - CRM 기반 타겟팅 메시징 `🟢 서비스 운영중`
 - Vue.js 기반 타겟팅 메시지 UI/조건 로직 고도화
 - 퍼널/리텐션 데이터 기반 발송 대상 세분화
 - 대량 조건 처리 렌더링 병목 분석 및 컴포넌트 구조 최적화
 
-#### [DBAY](https://dbay.io) - 견적·역경매 플랫폼
+#### [DBAY](https://dbay.io) - 견적·역경매 플랫폼 `🔴 서비스 종료`
 - React.js + Next.js + TypeScript 기반 초기 아키텍처 설계
 - SEO/유입 고려 구조 선택, TypeScript 도입으로 런타임 오류 비용 감소
 - ESLint/Prettier 기반 컨벤션 정립으로 온보딩/협업 효율 개선
 
-#### [Shortpang](https://mobile.shortpang.com) - 숏폼 플랫폼
+#### [Shortpang](https://mobile.shortpang.com) - 숏폼 플랫폼 `🟢 서비스 운영중`
 - 합류 후 기존 구조 빠른 파악 및 사용자 체감 성능 개선
 - 렌더링 병목 및 런타임 오류 감소
 
-#### [Shoplus](https://play.google.com/store/apps/details?id=com.enliple.shopplusapp)
+#### [Shoplus](https://play.google.com/store/apps/details?id=com.enliple.shopplusapp) `🟢 서비스 운영중`
 - PHP + JavaScript + MySQL 기반 프론트/백오피스 풀스택
 - 결제/적립 예외 케이스 정리 및 안정화
 - Git 기반 배포 프로세스 구축으로 휴먼 에러 감소
@@ -68,7 +68,7 @@
 
 ### 2) 파이어볼트
 
-#### [witchform.com](https://witchform.com)
+#### [witchform.com](https://witchform.com) `🟢 서비스 운영중`
 - PHP 템플릿 구조를 React SPA + REST API 구조로 재설계
 - Zustand 도입으로 상태 흐름 단순화, 유지보수성 개선
 - **Redis 캐싱 적용으로 API 응답 1.1s → 0.38s (약 65% 개선)**
@@ -78,7 +78,7 @@
 
 ### 3) 디휴브
 
-#### [repickus.com](https://repickus.com)
+#### [repickus.com](https://repickus.com) `🟢 서비스 운영중`
 - 단일 입력 페이지를 Step-by-Step UX로 개선하여 사용성 향상
 - 상품 코드 기반 시세 조회 및 감가율 추정 로직 개발
 - 중고가전 커머스 플로우(목록/상세/구매) 구현
@@ -89,6 +89,7 @@
 
 #### [DDakDeal](https://ddakdeal.com) - 전문가 매칭 플랫폼
 > TypeScript + Next.js(App Router) + Supabase + Capacitor
+> `🟢 서비스 운영중`
 
 - 기획/설계/개발/배포 전 과정 1인 수행
 - 결제(Webhook) idempotency + 트랜잭션 설계로 데이터 무결성 확보
@@ -96,10 +97,19 @@
 
 #### [FastBizKit](https://fastbizkit.com) - 비즈니스 생산성 플랫폼
 > TypeScript + Next.js + Cloudflare + Vercel
+> `🟢 서비스 운영중`
 
 - 100+ 도구(240+ routes) 구조 설계 및 확장
 - FFmpeg.wasm/PDF-lib 기반 클라이언트 사이드 미디어 처리
 - Dynamic import/tree shaking으로 초기 로딩 최적화
+
+---
+
+### 5) Ongoing Product
+
+#### [image-crop-app](https://github.com/choco5958/image-crop-app) - 이미지 크롭/보정 앱 `🛠️ 개발중`
+- Expo + React Native + TypeScript 기반 모바일 편집 앱 개발 진행 중
+- 크롭/보정/저장 품질/광고 연동 기능을 단계적으로 고도화 중
 
 ---
 
