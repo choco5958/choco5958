@@ -1,9 +1,10 @@
 # Hi, I'm HAN DAE HYEON 👋
 
-**풀스택 개발자** | 실무 서비스 고도화와 사이드 프로젝트 운영을 병행하며, 빠르게 만들고 안정적으로 유지하는 제품 개발을 지향합니다.
+**풀스택 웹 개발자 (경력 4년 6개월)**  
+서비스의 비즈니스 목적과 성장 단계에 맞는 기술 선택, 구조 설계, 운영 안정화를 중심으로 개발합니다.
 
 [![Email](https://img.shields.io/badge/Email-choco5958%40naver.com-blue?logo=gmail&logoColor=white)](mailto:choco5958@naver.com)
-[![CropLab](https://img.shields.io/badge/CropLab-Project-10B981?logo=expo&logoColor=white)](https://github.com/choco5958/image-crop-app)
+[![GitHub](https://img.shields.io/badge/GitHub-choco5958-181717?logo=github&logoColor=white)](https://github.com/choco5958)
 
 ---
 
@@ -11,120 +12,135 @@
 
 ### 📈 By the Numbers
 
-| 📦 Repos | 🚀 Production Projects | 🧩 Private Repos | 🔄 Updated (6M) | 🌐 Live Services |
-| :------: | :--------------------: | :--------------: | :-------------: | :--------------: |
-| **28** | **4** | **14** | **10** | **3** |
+| 💼 Career | 🚀 Production Projects | 🧩 Private Repos | 🔄 Updated (6M) | 🌐 Live Services |
+| :-------: | :--------------------: | :--------------: | :-------------: | :--------------: |
+| **4y 6m** |         **6+**         |      **14**      |     **10**      |      **3**       |
 
 </div>
 
 ---
 
-## 🚀 Production Projects
+## 🧭 Professional Summary
 
-### [CropLab (image-crop-app)](https://github.com/choco5958/image-crop-app) - 이미지 크롭/보정 앱
-
-> **Expo + React Native + TypeScript · 광고 연동 · 저장 파이프라인 최적화**
-
-- ✂️ **Features**: 자유/고정 비율 크롭, 회전, 필터/보정, 저장 품질 선택
-- 📱 **Platform**: Web + Native 저장 분기 및 권한 처리
-- ⚙️ **Engineering**: 상태 구조 단순화(`useReducer`), 광고 상태 흐름 안정화, lint/test 자동 검증
-- ✅ **Quality**: ESLint 0 warning + Node 테스트 스위트 적용
-
-<details>
-<summary><b>🏗️ 시스템 아키텍처</b></summary>
-
-```mermaid
-flowchart TB
-    U[User] --> UI[Expo App UI]
-    UI --> ED[Editor Engine]
-    ED --> CROP[Crop/Rotate]
-    ED --> FX[Filter/Adjust]
-    ED --> SAVE[Export Pipeline]
-    SAVE --> WEB[Canvas Export]
-    SAVE --> NATIVE[ViewShot + ImageManipulator]
-    ED --> ADS[Ad Layer]
-```
-
-</details>
+- 신규 서비스의 **기획 → 런칭 → 운영 안정화** 전 과정을 경험했습니다.
+- 단순 기능 구현보다, **확장 가능한 구조 설계**와 **유지보수 비용 절감**을 우선합니다.
+- React / Next.js / Vue.js / PHP 환경에서 실서비스를 개발·운영하며 아래를 주도했습니다.
+  - 성능 및 SEO를 고려한 프론트엔드 아키텍처 설계
+  - 운영 단계 이슈(안정성/예외 처리/배포) 해결
+  - 코드 컨벤션/개발환경 정비로 팀 생산성 향상
 
 ---
 
-### [FastBizkit](https://fastbizkit.vercel.app) - 비즈니스 운영 도구
+## 💼 Experience
 
-> **Private Repository · TypeScript 기반 운영형 서비스**
-
-- 업무 효율화 중심 기능 구현 및 지속 개선
-- 운영 피드백 기반 UX/기능 반복 고도화
-
----
-
-### [DDakDeal](https://ddakdeal.vercel.app) - 전문가 매칭 플랫폼
-
-> **Private Repository · 서비스 운영/확장 프로젝트**
-
-- 사용자 플로우 중심의 기능 설계 및 개선
-- 실제 운영 요구사항 반영 중심의 기능 확장
+| 기간 | 회사 | 직책 | 주요 내용 |
+| :--- | :--- | :--- | :--- |
+| 2024.10 ~ 현재 | **인라이플** | 주임 | 신규/기존 서비스 프론트엔드 설계, 백오피스 풀스택, 운영 안정화 |
+| 2022.01 ~ 2024.06 | **파이어볼트** | 사원 | PHP 템플릿 구조를 React SPA + API 구조로 전환, 성능 최적화 |
+| 2021.06 ~ 2021.11 | **디휴브** | 사원 | 기능 단위 풀스택 개발, UI/UX 개선, 데이터 기반 기능 개발 |
 
 ---
 
-### [AutoSourcing](https://auto-sourcing.vercel.app) - 자동화 소싱 서비스
+## 🚀 Key Project Highlights
 
-> **Private Repository · 자동화 워크플로우 서비스**
+### 1) 인라이플
 
-- 반복 업무 자동화를 위한 도메인 흐름 설계
-- 예외 처리 및 유지보수성 중심 구조 개선
+#### [iSend](https://isend.co.kr) - CRM 기반 타겟팅 메시징
+- Vue.js 기반 타겟팅 메시지 UI/조건 로직 고도화
+- 퍼널/리텐션 데이터 기반 발송 대상 세분화
+- 대량 조건 처리 렌더링 병목 분석 및 컴포넌트 구조 최적화
+
+#### [DBAY](https://dbay.io) - 견적·역경매 플랫폼
+- React.js + Next.js + TypeScript 기반 초기 아키텍처 설계
+- SEO/유입 고려 구조 선택, TypeScript 도입으로 런타임 오류 비용 감소
+- ESLint/Prettier 기반 컨벤션 정립으로 온보딩/협업 효율 개선
+
+#### [Shortpang](https://mobile.shortpang.com) - 숏폼 플랫폼
+- 합류 후 기존 구조 빠른 파악 및 사용자 체감 성능 개선
+- 렌더링 병목 및 런타임 오류 감소
+
+#### [Shoplus](https://play.google.com/store/apps/details?id=com.enliple.shopplusapp)
+- PHP + JavaScript + MySQL 기반 프론트/백오피스 풀스택
+- 결제/적립 예외 케이스 정리 및 안정화
+- Git 기반 배포 프로세스 구축으로 휴먼 에러 감소
 
 ---
 
-## 🎨 Demo Portfolio — Public Repositories
+### 2) 파이어볼트
 
-학습/실험 중심 공개 레포를 포트폴리오 형태로 정리했습니다.
+#### [witchform.com](https://witchform.com)
+- PHP 템플릿 구조를 React SPA + REST API 구조로 재설계
+- Zustand 도입으로 상태 흐름 단순화, 유지보수성 개선
+- **Redis 캐싱 적용으로 API 응답 1.1s → 0.38s (약 65% 개선)**
+- CSR SEO 개선으로 **Lighthouse 68 → 92**
 
-| 카테고리 | 프로젝트 | 설명 |
-| -------- | -------- | ---- |
-| **Backend** | [nestjs-inflearn-actual](https://github.com/choco5958/nestjs-inflearn-actual) | NestJS 실전 학습 코드 |
-| **Backend** | [nestjs-lecture](https://github.com/choco5958/nestjs-lecture) | NestJS 강의 실습 |
-| **Fullstack** | [fastapi-pybo](https://github.com/choco5958/fastapi-pybo) | Python 백엔드 + 프론트 연동 |
-| **Frontend** | [react-begin](https://github.com/choco5958/react-begin) | React 기초/패턴 연습 |
-| **Frontend** | [mashup-todolist](https://github.com/choco5958/mashup-todolist) | Todo 기반 UI 상태관리 실습 |
-| **Frontend** | [styled-components](https://github.com/choco5958/styled-components) | CSS-in-JS 스타일링 실습 |
-| **Frontend** | [css-module](https://github.com/choco5958/css-module) | CSS Module 구조 실습 |
-| **Frontend** | [styling-with-sass](https://github.com/choco5958/styling-with-sass) | Sass 기반 스타일 구조 실습 |
+---
+
+### 3) 디휴브
+
+#### [repickus.com](https://repickus.com)
+- 단일 입력 페이지를 Step-by-Step UX로 개선하여 사용성 향상
+- 상품 코드 기반 시세 조회 및 감가율 추정 로직 개발
+- 중고가전 커머스 플로우(목록/상세/구매) 구현
+
+---
+
+### 4) Personal Products (1인 개발)
+
+#### [DDakDeal](https://ddakdeal.com) - 전문가 매칭 플랫폼
+> TypeScript + Next.js(App Router) + Supabase + Capacitor
+
+- 기획/설계/개발/배포 전 과정 1인 수행
+- 결제(Webhook) idempotency + 트랜잭션 설계로 데이터 무결성 확보
+- Web/Android/iOS 단일 코드베이스 운영
+
+#### [FastBizKit](https://fastbizkit.com) - 비즈니스 생산성 플랫폼
+> TypeScript + Next.js + Cloudflare + Vercel
+
+- 100+ 도구(240+ routes) 구조 설계 및 확장
+- FFmpeg.wasm/PDF-lib 기반 클라이언트 사이드 미디어 처리
+- Dynamic import/tree shaking으로 초기 로딩 최적화
+
+---
+
+## 🎓 Education
+
+- **한국방송통신대학교 컴퓨터과학과** (편입/졸업) 2024.03 ~ 2026.02
+- **배재대학교 러시아학과** (졸업) 2014.03 ~ 2020.02
+
+---
+
+## 📚 Training & Activities
+
+- 코리아IT아카데미 Java 풀스택 과정 수료 (2020.12 ~ 2021.05)
+- 원주 다이내믹 댄싱카니발 러시아어 통역 봉사 (2019.09)
+- 카자흐스탄 대통령 순방 계기 프레스센터 운영 지원 (2019.04)
+- 카자흐스탄 교환학생 (2018.08 ~ 2019.05)
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Languages & Frameworks**
-
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
-![React Native](https://img.shields.io/badge/React_Native-20232A?style=flat&logo=react&logoColor=61DAFB)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)
-![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=nestjs&logoColor=white)
-
-**Database & Infrastructure**
-
+![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat&logo=vuedotjs&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
-![Oracle](https://img.shields.io/badge/Oracle-F80000?style=flat&logo=oracle&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazon-aws&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 
 ---
 
-## ⚙️ How I Build — Practical Engineering Workflow
+## ⚙️ How I Build
 
 ```text
-1. PLAN    요구사항과 도메인 흐름을 단순화하고 우선순위를 정의
-2. BUILD   기능 구현과 운영 이슈(권한/예외/로그)를 동시에 반영
-3. VERIFY  린트/테스트/실사용 시나리오로 회귀 검증
-4. IMPROVE 코드 복잡도와 유지보수 비용을 지속적으로 감소
-5. DEPLOY  배포 후 지표/피드백 기반으로 빠르게 개선
+1. PLAN    서비스 목적/운영 환경 기준으로 구조 설계
+2. BUILD   기능 + 예외/권한/데이터 무결성 동시 반영
+3. VERIFY  린트/테스트/운영 시나리오 점검
+4. IMPROVE 병목 제거와 유지보수 비용 절감 반복
 ```
 
 ---
@@ -156,7 +172,7 @@ flowchart TB
 
 <!-- Last Updated 자동 갱신: 2026-04-06 -->
 
-**Current Focus**: 운영 중인 서비스 고도화 + 모바일/백엔드 품질 개선  
-**Open to**: Full-Stack / Backend 포지션 및 프로젝트 협업
+**Current Focus**: 운영 서비스 고도화 + 1인 제품 개발  
+**Open to**: Full-Stack / Frontend / Backend 포지션 및 프로젝트 협업
 
-📬 **문의**: [choco5958@naver.com](mailto:choco5958@naver.com)
+📬 **Contact**: [choco5958@naver.com](mailto:choco5958@naver.com)
