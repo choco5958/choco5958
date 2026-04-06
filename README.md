@@ -5,6 +5,7 @@
 
 [![Email](https://img.shields.io/badge/Email-choco5958%40naver.com-blue?logo=gmail&logoColor=white)](mailto:choco5958@naver.com)
 [![GitHub](https://img.shields.io/badge/GitHub-choco5958-181717?logo=github&logoColor=white)](https://github.com/choco5958)
+![Profile Views](https://komarev.com/ghpvc/?username=choco5958&style=flat-square&color=0e75b6)
 
 ---
 
