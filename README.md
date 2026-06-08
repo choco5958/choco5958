@@ -181,7 +181,7 @@
 
 ---
 
-<!-- Last Updated 자동 갱신: 2026-06-01 -->
+<!-- Last Updated 자동 갱신: 2026-06-08 -->
 
 **Current Focus**: 운영 서비스 고도화 + 1인 제품 개발  
 **Open to**: Full-Stack / Frontend / Backend 포지션 및 프로젝트 협업
