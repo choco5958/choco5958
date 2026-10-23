@@ -1,0 +1,3 @@
+node_modules/
+.preview/
+scripts/data/sources.local.json

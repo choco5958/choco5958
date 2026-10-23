@@ -1,0 +1,110 @@
+{
+  "name": "한대현",
+  "nameEn": "HAN DAE HYEON",
+  "role": "FULL-STACK DEVELOPER · INGSTORY",
+  "tagline": ["공통 코어 하나로 여러 업종 서비스를 찍어내고,", "출시와 운영까지 맡는 풀스택 개발자입니다."],
+  "chips": [
+    "TypeScript",
+    "React · Next.js",
+    "NestJS",
+    "PostgreSQL",
+    "AWS · Terraform"
+  ],
+  "footer": "SEOUL · KOREA   ·   BUILDING SINCE 2021",
+  "careerYears": "5+",
+  "careerSince": "2021.06 → 지금",
+  "career": [
+    {
+      "label": "디휴브",
+      "from": "2021-06",
+      "to": "2021-11",
+      "row": 0
+    },
+    {
+      "label": "파이어볼트",
+      "from": "2022-01",
+      "to": "2024-06",
+      "row": 0
+    },
+    {
+      "label": "인라이플",
+      "from": "2024-10",
+      "to": "2026-04",
+      "row": 0
+    },
+    {
+      "label": "휴넷",
+      "from": "2026-04",
+      "to": "2026-07",
+      "row": 0,
+      "labelBelow": true
+    },
+    {
+      "label": "아이엔지스토리",
+      "from": "2026-08",
+      "to": "now",
+      "row": 0,
+      "current": true
+    },
+    {
+      "label": "코리아IT 풀스택 과정",
+      "from": "2020-12",
+      "to": "2021-05",
+      "row": 1
+    },
+    {
+      "label": "방송대 컴퓨터과학과",
+      "from": "2024-03",
+      "to": "2026-02",
+      "row": 1
+    }
+  ],
+  "stack": [
+    {
+      "group": "화면 · 앱",
+      "items": [
+        ["TypeScript", "siTypescript"],
+        ["React", "siReact"],
+        ["Next.js", "siNextdotjs"],
+        ["Vue.js", "siVuedotjs"],
+        ["Vite", "siVite"],
+        ["Tailwind", "siTailwindcss"],
+        ["Capacitor", "siCapacitor"],
+        ["Expo", "siExpo"]
+      ]
+    },
+    {
+      "group": "서버 · 데이터",
+      "items": [
+        ["Node.js", "siNodedotjs"],
+        ["NestJS", "siNestjs"],
+        ["PHP", "siPhp"],
+        ["PostgreSQL", "siPostgresql"],
+        ["MySQL", "siMysql"],
+        ["Redis", "siRedis"],
+        ["Prisma", "siPrisma"],
+        ["Drizzle", "siDrizzle"]
+      ]
+    },
+    {
+      "group": "인프라 · 품질",
+      "items": [
+        ["AWS", null],
+        ["Terraform", "siTerraform"],
+        ["Docker", "siDocker"],
+        ["Actions", "siGithubactions"],
+        ["Vitest", "siVitest"],
+        ["Playwright", null]
+      ]
+    },
+    {
+      "group": "AI · 개인 제품",
+      "items": [
+        ["Claude Code", "siClaude"],
+        ["Supabase", "siSupabase"],
+        ["Cloudflare", "siCloudflare"],
+        ["Vercel", "siVercel"]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="28" viewBox="0 0 1200 28" role="img" aria-labelledby="t d">
+<title id="t">divider</title>
+<desc id="d">구분선</desc>
+<style>@media (prefers-reduced-motion: reduce){*{animation:none!important;}}</style>
+
+<line x1="40" x2="548" y1="14" y2="14" stroke="#E8DCCF" stroke-width="1.5"/>
+<line x1="652" x2="1160" y1="14" y2="14" stroke="#E8DCCF" stroke-width="1.5"/>
+<rect x="560" y="4" width="20" height="20" rx="5" fill="#C98F5E"/>
+<rect x="590" y="4" width="20" height="20" rx="5" fill="#5C301B"/>
+<rect x="620" y="4" width="20" height="20" rx="5" fill="#C98F5E"/>
+</svg>
