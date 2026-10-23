@@ -14,7 +14,17 @@ const profile = load("profile");
 const company = load("company");
 
 const outputs = new Map();
+let sectionAlt = {};
 for (const [name, make] of Object.entries(assets)) {
+  // 섹션 보드: 테마마다 데스크톱·휴대폰 한 벌씩. 대체 텍스트는 README 에 채운다
+  if (name === "sections") {
+    for (const [theme, tokens] of Object.entries(THEMES)) {
+      const { alt, ...files } = await make(tokens, profile, company, theme);
+      for (const [file, svg] of Object.entries(files)) outputs.set(`assets/sections/${file}-${theme}.svg`, svg);
+      sectionAlt = alt;
+    }
+    continue;
+  }
   // 배지는 테마와 상관없이 한 벌만
   if (name === "badges") {
     for (const [file, svg] of Object.entries(await make(THEMES.dark, profile, company))) outputs.set(`assets/badges/${file}.svg`, svg);
@@ -54,8 +64,17 @@ if (missing.length) {
   console.error(`README 에 모르는 숫자 키: ${missing.join(", ")}`);
   process.exit(1);
 }
+// 섹션 그림의 대체 텍스트: {{alt:키}} 를 섹션 내용으로 채운다(따옴표는 HTML 속성에 맞게)
+const withAlt = filled.replace(/\{\{alt:(\w+)\}\}/g, (m, k) => {
+  if (!(k in sectionAlt)) { missing.push(`alt:${k}`); return m; }
+  return sectionAlt[k].replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+});
+if (missing.length) {
+  console.error(`README 에 모르는 키: ${missing.join(", ")}`);
+  process.exit(1);
+}
 // 숫자 자리 표시는 원본에만 둔다. 남겨 두면 숫자와 뒤 글자(「3,470건」) 사이에 연결 문자가 못 들어간다
-const plain = filled.replace(/<!--n:\w+-->(.*?)<!--\/n-->/g, "$1");
+const plain = withAlt.replace(/<!--n:\w+-->(.*?)<!--\/n-->/g, "$1");
 outputs.set("README.md", `<!-- 이 파일은 npm run build 가 README.source.md 에서 만든다. 직접 고치지 않는다 -->\n${joinWords(plain)}`);
 
 // 움직이는 첫 화면은 motion/ 에서 따로 렌더한다. 자료가 바뀌었는데 GIF 가 옛 자료 그대로면 알린다
@@ -74,6 +93,7 @@ if (check) {
   console.log(`그림 ${outputs.size - 1}장과 README 숫자가 자료와 같습니다.`);
 } else {
   mkdirSync(`${root}assets/badges`, { recursive: true });
+  mkdirSync(`${root}assets/sections`, { recursive: true });
   for (const [path, body] of outputs) {
     writeFileSync(`${root}${path}`, body);
     if (path.endsWith(".svg")) console.log(`${path}  ${(body.length / 1024).toFixed(1)}KB`);

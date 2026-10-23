@@ -1,7 +1,7 @@
 name: Profile
 
 # check: 그림·README 숫자가 scripts/data 자료와 같은지 본다(회사 자료는 로컬에서만 모은다).
-# snake: 매일 잔디 뱀을 초콜릿 색으로 다시 그려 output 브랜치에 올린다.
+# snake: 매일 잔디 뱀을 녹흑 보드 색으로 다시 그려 output 브랜치에 올린다.
 on:
   push:
     branches: [main]
@@ -38,8 +38,8 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-contribution-grid-snake.svg?color_snake=#C8551F&color_dots=#F1E4D6,#E3C2A2,#C98F5E,#9C5B33,#5C301B
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#FF8A4C&color_dots=#161b22,#47301F,#76482B,#B26937,#F0A061
+            dist/github-contribution-grid-snake.svg?color_snake=#2F6F5E&color_dots=#ECEBE5,#B9CFC6,#7FAE9E,#357763,#1F5446
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#9FC7B8&color_dots=#161b22,#33443E,#4F6F63,#76A294,#9FC7B8
       - uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output

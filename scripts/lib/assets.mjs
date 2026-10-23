@@ -294,3 +294,40 @@ export async function badges(t, profile) {
   out["status-dev"] = await pill("개발 중", { fill: "#28322F", ink: "#E3E2DA", mark: "#9AA09A", h: 32, size: 15 });
   return out;
 }
+
+// 섹션 보드 7종(요약·지금 하는 일·일하는 방식·경력·개인 제품·학력·연락). 내용은 scripts/data/sections.json
+// { "sec-now": svg, "sec-now-mobile": svg, … } 를 테마마다 돌려준다.
+export async function sections(t, profile, company, themeName) {
+  const { readFileSync } = await import("node:fs");
+  const { renderBoard, plain } = await import("./board.mjs");
+  const raw = readFileSync(new URL("../data/sections.json", import.meta.url), "utf8");
+  const total = Object.values(company.areas).reduce((a, b) => a + b, 0);
+  const n = {
+    commits: fmt(company.commits), repos: company.repos, cards: fmt(Object.values(company.cards).reduce((a, b) => a + b, 0)),
+    feat: company.cards.FEAT, bug: company.cards.BUG, ops: company.cards.OPS, adr: company.cards.ADR,
+  };
+  const data = JSON.parse(raw.replace(/\{(\w+)\}/g, (m, k) => (k in n ? String(n[k]) : m)));
+  for (const row of data.now) for (const tile of row) if (tile.share) tile.share = { commits: fmt(company.areas[tile.share]), pct: Math.round((company.areas[tile.share] / total) * 100) };
+  // 대체 텍스트: 타일의 글을 그대로 이어 붙인다(화면 낭독기·검색용)
+  const alt = (rows) => rows.flatMap((r) => (Array.isArray(r) ? r : [{ title: r.steps.map((s) => s[0]).join(" → ") }])).map((tile) =>
+    [tile.title, tile.meta, tile.big && `${tile.big}${tile.unit || ""}`, tile.label, tile.text, ...(tile.bullets || []), ...(tile.stats || []).map((s) => s.join(" ")), tile.foot, tile.status && (tile.status === "live" ? "운영 중" : "개발 중")]
+      .filter(Boolean).map((s) => plain(String(s))).join(". ")).join(" / ");
+  const c = data.contact;
+  const sets = {
+    summary: data.summary,
+    now: data.now,
+    how: [{ steps: data.how.steps }, ...data.how.rows],
+    career: data.career,
+    products: data.products,
+    education: data.education,
+    contact: [[{ fill: "accent", title: c.title, text: c.text, big: c.mail }]],
+  };
+  const out = {};
+  for (const [key, rows] of Object.entries(sets)) {
+    const desc = alt(rows);
+    out[`sec-${key}`] = await renderBoard(themeName, t, rows, { title: key, desc });
+    out[`sec-${key}-mobile`] = await renderBoard(themeName, t, rows, { mobile: true, title: key, desc });
+  }
+  out.alt = Object.fromEntries(Object.entries(sets).map(([k, rows]) => [k, alt(rows)]));
+  return out;
+}
