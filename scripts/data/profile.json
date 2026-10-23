@@ -1,16 +1,7 @@
 {
   "name": "한대현",
   "nameEn": "HAN DAE HYEON",
-  "role": "FULL-STACK DEVELOPER · INGSTORY",
   "tagline": ["공통 코어 하나로 여러 업종 서비스를 찍어내고,", "출시와 운영까지 맡는 풀스택 개발자입니다."],
-  "chips": [
-    "TypeScript",
-    "React · Next.js",
-    "NestJS",
-    "PostgreSQL",
-    "AWS · Terraform"
-  ],
-  "footer": "SEOUL · KOREA   ·   BUILDING SINCE 2021",
   "careerYears": "5+",
   "careerSince": "2021.06 → 지금",
   "career": [
@@ -105,6 +96,77 @@
         ["Cloudflare", "siCloudflare"],
         ["Vercel", "siVercel"]
       ]
+    }
+  ],
+  "roleLine": "풀스택 개발자 · 아이엔지스토리",
+  "contact": "choco5958@naver.com",
+  "mold": {
+    "core": {
+      "title": "공통 코어",
+      "sub": "업종 서비스가 버전을 고정해 가져다 쓰는 앱 코어",
+      "note": "0.1.0 → 0.1.115 · DB 이관 147개",
+      "parts": [
+        "서버",
+        "DB",
+        "API 클라이언트",
+        "본사 콘솔",
+        "지점 어드민",
+        "고객 웹",
+        "키오스크 웹"
+      ]
+    },
+    "servicesTitle": "업종별 서비스 6종",
+    "services": [
+      "무인 창고",
+      "웰니스",
+      "보드게임 카페",
+      "복합문화공간",
+      "음악 연습실",
+      "헬스장"
+    ],
+    "serviceSub": "웹 · 어드민 · 본사 · 키오스크",
+    "base": {
+      "title": "인프라 표준",
+      "line": "Terraform 공용 모듈 20개 · 새 서비스 찍어내기 스크립트 · 매일 백업 복원 대조 · ARM64"
+    }
+  },
+  "metrics": [
+    {
+      "label": "배포 파이프라인",
+      "where": "아이엔지스토리 · 같은 파이프라인 전후",
+      "before": 16.0,
+      "after": 9.4,
+      "unit": "분"
+    },
+    {
+      "label": "배포 시간",
+      "where": "아이엔지스토리 · 품질 검사 병렬화",
+      "before": 14.1,
+      "after": 8.0,
+      "unit": "분",
+      "afterText": "8분대"
+    },
+    {
+      "label": "ESLint 오류",
+      "where": "아이엔지스토리 · 저장소 전체",
+      "before": 129,
+      "after": 0,
+      "unit": "건"
+    },
+    {
+      "label": "API 응답",
+      "where": "파이어볼트 · Redis 캐시",
+      "before": 1.1,
+      "after": 0.38,
+      "unit": "s"
+    },
+    {
+      "label": "Lighthouse",
+      "where": "파이어볼트 · CSR SEO 개선",
+      "before": 68,
+      "after": 92,
+      "unit": "점",
+      "higherIsBetter": true
     }
   ]
 }

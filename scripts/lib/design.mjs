@@ -5,36 +5,28 @@ import subsetFont from "subset-font";
 
 const nm = new URL("../../node_modules/", import.meta.url).pathname;
 
-// 초콜릿(choco5958)에서 온 색: 코코아 글자, 크림 바탕, 캐러멜 강조.
+// 민트초코(choco5958): 짙은 코코아 바탕, 회갈색 돌 표면, 민트 강조. 글자 대비는 모두 4.5:1 이상.
 export const THEMES = {
   light: {
-    bg: "#FBF6F0",
-    surface: "#FFFFFF",
-    sunken: "#F4EBE1",
-    ink: "#2A1C15",
-    sub: "#6E584B",
-    faint: "#A08A7C",
-    line: "#E8DCCF",
-    accent: "#C8551F",
-    accentSoft: "#F6DCCB",
-    good: "#2F7D5B",
+    surface: "#F4F0EC",
+    surface2: "#E9E2DB",
+    ink: "#2A1A12",
+    sub: "#5E4B40",
+    faint: "#7A675B",
+    accent: "#0B7A61",
     // 커밋이 많을수록 진한 초콜릿
-    heat: ["#F1E4D6", "#E3C2A2", "#C98F5E", "#9C5B33", "#5C301B"],
-    bar: { base: "#7A4127", top: "#9A5A36", shade: "#5A2E1A", glint: "#B8794F", text: "#FBE9D9" },
+    heat: ["#EFE7E0", "#DCC3AE", "#B98A66", "#8A5536", "#4E2A18"],
+    field: { bg: "#2E1B12", ink: "#F6ECE4", sub: "#C9B3A5", mint: "#6FE3C1", mold: "#1E110A", heat: ["#4A2C1D", "#6B3F27", "#8E5634", "#B87344", "#E3A06A"] },
   },
   dark: {
-    bg: "#14100D",
     surface: "#1D1612",
-    sunken: "#251C17",
-    ink: "#F5ECE3",
-    sub: "#BCA595",
-    faint: "#806B5E",
-    line: "#35281F",
-    accent: "#FF8A4C",
-    accentSoft: "#3D2418",
-    good: "#5BC79A",
-    heat: ["#251C17", "#47301F", "#76482B", "#B26937", "#F0A061"],
-    bar: { base: "#5E3220", top: "#7A4429", shade: "#3B1E12", glint: "#9E6340", text: "#FFE3CC" },
+    surface2: "#2A211C",
+    ink: "#F2E9E2",
+    sub: "#C2AD9F",
+    faint: "#9A8679",
+    accent: "#5FD9B5",
+    heat: ["#2A211C", "#4A3122", "#7B4B2D", "#B5713F", "#E9A66F"],
+    field: { bg: "#2B1911", ink: "#F6ECE4", sub: "#C9B3A5", mint: "#6FE3C1", mold: "#190D07", heat: ["#4A2C1D", "#6B3F27", "#8E5634", "#B87344", "#E3A06A"] },
   },
 };
 

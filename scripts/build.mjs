@@ -1,8 +1,10 @@
-// assets/*-{light,dark}.svg 를 다시 그리고, README 의 <!--n:키-->값<!--/n--> 자리에 숫자를 채운다.
+// assets/*-{light,dark}.svg 를 다시 그리고, README.source.md 의 <!--n:키-->값<!--/n--> 자리에 숫자를 채워
+// 한글 어절을 묶은 README.md 를 만든다. README 는 README.source.md 에서 고친다.
 // 숫자는 scripts/data/*.json 에서만 온다. `--check` 는 파일을 쓰지 않고 어긋난 것만 알린다(CI 용).
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { THEMES, fmt } from "./lib/design.mjs";
 import * as assets from "./lib/assets.mjs";
+import { joinWords } from "./lib/wordjoin.mjs";
 
 const root = new URL("..", import.meta.url).pathname;
 const check = process.argv.includes("--check");
@@ -34,7 +36,7 @@ const numbers = {
   ...Object.fromEntries(Object.entries(company.areas).map(([k, v]) => [`area_${k}`, fmt(v)])),
   ...Object.fromEntries(Object.entries(company.areas).map(([k, v]) => [`pct_${k}`, `${Math.round((v / areaTotal) * 100)}%`])),
 };
-const readme = readFileSync(`${root}README.md`, "utf8");
+const readme = readFileSync(`${root}README.source.md`, "utf8");
 const missing = [];
 const filled = readme.replace(/<!--n:(\w+)-->(.*?)<!--\/n-->/g, (_, key) => {
   if (!(key in numbers)) missing.push(key);
@@ -44,7 +46,7 @@ if (missing.length) {
   console.error(`README 에 모르는 숫자 키: ${missing.join(", ")}`);
   process.exit(1);
 }
-outputs.set("README.md", filled);
+outputs.set("README.md", `<!-- 이 파일은 npm run build 가 README.source.md 에서 만든다. 직접 고치지 않는다 -->\n${joinWords(filled)}`);
 
 if (check) {
   const stale = [...outputs].filter(([path, body]) => !existsSync(`${root}${path}`) || readFileSync(`${root}${path}`, "utf8") !== body).map(([path]) => path);
