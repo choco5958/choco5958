@@ -4,18 +4,18 @@
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-mobile-dark.gif">
   <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-mobile-light.gif">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-dark.gif">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-light.gif" width="100%" alt="한대현 — 풀스택 개발자, 아이엔지스토리. 공통 코어 하나로 여러 업종 서비스를 찍어내고, 출시와 운영까지 맡습니다. 오른쪽 초콜릿 틀의 칸은 아이엔지스토리 12주 동안 주마다 남긴 커밋 수입니다.">
+  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-light.gif" width="100%" alt="한대현 — 풀스택 개발자, 아이엔지스토리. 공통 코어 하나로 여러 업종 서비스를 찍어내고, 출시와 운영까지 맡습니다. 12주 동안 하루하루 쌓인 커밋 3D 스카이라인(가장 많은 날 10월 8일 255건), 회사 커밋 3,470건, 커밋한 날 54일, 업종별 서비스 6종, 배포 시간 16.0분에서 9.4분(−41%), 작업 카드 734장, 공통 코어 0.1.0에서 0.1.115. 채용 · 협업 문의 choco5958@naver.com">
 </picture>
 
 <p align="center"><b>채용 · 협업 문의</b> <a href="mailto:choco5958@naver.com">choco5958@naver.com</a></p>
 
 <p align="center">
-  <a href="#지금-하는-일">지금 하는 일</a> ·
-  <a href="#전후-실측">전후 실측</a> ·
-  <a href="#일하는-방식">일하는 방식</a> ·
-  <a href="#경력">경력</a> ·
-  <a href="#개인-제품">개인 제품</a> ·
-  <a href="#기술-스택">기술 스택</a>
+  <a href="#지금-하는-일"><img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/badges/nav-now.svg" height="40" alt="지금 하는 일"></a>
+  <a href="#전후-실측"><img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/badges/nav-metrics.svg" height="40" alt="전후 실측"></a>
+  <a href="#일하는-방식"><img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/badges/nav-how.svg" height="40" alt="일하는 방식"></a>
+  <a href="#경력"><img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/badges/nav-career.svg" height="40" alt="경력"></a>
+  <a href="#개인-제품"><img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/badges/nav-products.svg" height="40" alt="개인 제품"></a>
+  <a href="#기술-스택"><img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/badges/nav-stack.svg" height="40" alt="기술 스택"></a>
 </p>
 
 > **Full-stack developer, 5+ years.** I build multi-tenant SaaS for physical stores — one shared core, many industry services, from first commit to app-store release and day-to-day operation.
@@ -67,11 +67,6 @@
 - 기존 도구의 저장 답변을 옮겨 오는 기능과 안 읽음 배지를 만들었습니다.
 - 네이버 채널 연동을 **기능 스위치를 끈 채** 단계별로 들였습니다.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/daily-dark.svg">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/daily-light.svg" width="100%" alt="아이엔지스토리 일별 커밋 막대와 누적 선. 2026년 8월 초 시작해 10월에 하루 최다 255건.">
-</picture>
-
 <div align="right"><a href="#top">↑ 위로</a></div>
 
 ## 전후 실측
@@ -113,6 +108,8 @@ flowchart LR
 ## 경력
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/timeline-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/timeline-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/timeline-dark.svg">
   <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/timeline-light.svg" width="100%" alt="경력 연표: 디휴브 2021.06–11, 파이어볼트 2022.01–2024.06, 인라이플 2024.10–2026.04, 휴넷(프리랜서) 2026.04–07, 아이엔지스토리 2026.08–지금. 아래 줄은 코리아IT 풀스택 과정과 방송대 컴퓨터과학과.">
 </picture>
@@ -191,14 +188,16 @@ flowchart LR
 
 | 제품 | 한 줄 |
 | :-- | :-- |
-| **루픽 LOOPIC**<br/><sub>개발 중</sub> | SNS 채널별로 소재 찾기부터 제작, 게시, 성과까지 잇는 수익화 자동화.<br/><sub>Next.js 16 · Drizzle · PostgreSQL</sub> |
-| **[DDakDeal](https://ddakdeal.com)**<br/><sub>운영 중</sub> | 전문가 매칭 플랫폼. 결제 웹훅을 한 번만 처리되게 묶고, 웹과 앱을 한 코드로 만들었습니다.<br/><sub>Next.js · Supabase · Capacitor</sub> |
-| **[FastBizKit](https://fastbizkit.com)**<br/><sub>운영 중</sub> | 100가지가 넘는 업무 도구 모음. 파일을 서버에 올리지 않고 브라우저에서 처리합니다.<br/><sub>Next.js · FFmpeg.wasm · pdf-lib · Cloudflare</sub> |
-| **[image-crop-app](https://github.com/choco5958/image-crop-app)**<br/><sub>개발 중</sub> | 이미지 자르기와 보정을 하는 모바일 앱.<br/><sub>Expo · React Native</sub> |
+| **루픽 LOOPIC**<br/><img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/badges/status-dev.svg" height="26" alt="개발 중"> | SNS 채널별로 소재 찾기부터 제작, 게시, 성과까지 잇는 수익화 자동화.<br/><sub>Next.js 16 · Drizzle · PostgreSQL</sub> |
+| **[DDakDeal](https://ddakdeal.com)**<br/><img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/badges/status-live.svg" height="26" alt="운영 중"> | 전문가 매칭 플랫폼. 결제 웹훅을 한 번만 처리되게 묶고, 웹과 앱을 한 코드로 만들었습니다.<br/><sub>Next.js · Supabase · Capacitor</sub> |
+| **[FastBizKit](https://fastbizkit.com)**<br/><img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/badges/status-live.svg" height="26" alt="운영 중"> | 100가지가 넘는 업무 도구 모음. 파일을 서버에 올리지 않고 브라우저에서 처리합니다.<br/><sub>Next.js · FFmpeg.wasm · pdf-lib · Cloudflare</sub> |
+| **[image-crop-app](https://github.com/choco5958/image-crop-app)**<br/><img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/badges/status-dev.svg" height="26" alt="개발 중"> | 이미지 자르기와 보정을 하는 모바일 앱.<br/><sub>Expo · React Native</sub> |
 
 ## 기술 스택
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/stack-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/stack-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/stack-dark.svg">
   <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/stack-light.svg" width="100%" alt="화면·앱: TypeScript, React, Next.js, Vue.js, Vite, Tailwind, Capacitor, Expo / 서버·데이터: Node.js, NestJS, PHP, PostgreSQL, MySQL, Redis, Prisma, Drizzle / 인프라·품질: AWS, Terraform, Docker, GitHub Actions, Vitest, Playwright / AI·개인 제품: Claude Code, Supabase, Cloudflare, Vercel">
 </picture>

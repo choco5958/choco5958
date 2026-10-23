@@ -5,28 +5,30 @@ import subsetFont from "subset-font";
 
 const nm = new URL("../../node_modules/", import.meta.url).pathname;
 
-// 민트초코(choco5958): 짙은 코코아 바탕, 회갈색 돌 표면, 민트 강조. 글자 대비는 모두 4.5:1 이상.
+// 녹흑 + 뼈색(Taste 추첨 「Green-black and bone」에서 고름). 라이트는 뼈색 표면, 다크는 녹흑 표면.
+// 글자 대비는 모두 4.5:1 이상. field 는 두 테마 모두 짙은 녹흑 판(첫 화면 보드·구조도의 코어).
+const FIELD = { bg: "#161C1A", ink: "#E3E2DA", sub: "#A9AEA7", mint: "#9FC7B8", mold: "#0F1412", heat: ["#28322F", "#33443E", "#4F6F63", "#76A294", "#9FC7B8"] };
 export const THEMES = {
   light: {
-    surface: "#F4F0EC",
-    surface2: "#E9E2DB",
-    ink: "#2A1A12",
-    sub: "#5E4B40",
-    faint: "#7A675B",
-    accent: "#0B7A61",
-    // 커밋이 많을수록 진한 초콜릿
-    heat: ["#EFE7E0", "#DCC3AE", "#B98A66", "#8A5536", "#4E2A18"],
-    field: { bg: "#2E1B12", ink: "#F6ECE4", sub: "#C9B3A5", mint: "#6FE3C1", mold: "#1E110A", heat: ["#4A2C1D", "#6B3F27", "#8E5634", "#B87344", "#E3A06A"] },
+    surface: "#ECEBE5",
+    surface2: "#DFDED6",
+    ink: "#161C1A",
+    sub: "#46504C",
+    faint: "#545D59",
+    accent: "#2F6F5E",
+    // 커밋이 많을수록 짙은 녹색
+    heat: ["#E3E2DA", "#B9CFC6", "#7FAE9E", "#357763", "#1F5446"],
+    field: FIELD,
   },
   dark: {
-    surface: "#1D1612",
-    surface2: "#2A211C",
-    ink: "#F2E9E2",
-    sub: "#C2AD9F",
-    faint: "#9A8679",
-    accent: "#5FD9B5",
-    heat: ["#2A211C", "#4A3122", "#7B4B2D", "#B5713F", "#E9A66F"],
-    field: { bg: "#2B1911", ink: "#F6ECE4", sub: "#C9B3A5", mint: "#6FE3C1", mold: "#190D07", heat: ["#4A2C1D", "#6B3F27", "#8E5634", "#B87344", "#E3A06A"] },
+    surface: "#1F2725",
+    surface2: "#28322F",
+    ink: "#E3E2DA",
+    sub: "#B4B8B1",
+    faint: "#9AA09A",
+    accent: "#9FC7B8",
+    heat: ["#28322F", "#33443E", "#4F6F63", "#76A294", "#9FC7B8"],
+    field: FIELD,
   },
 };
 
@@ -35,6 +37,7 @@ const FONT_FILES = {
     500: "pretendard/dist/public/static/alternative/Pretendard-Medium.ttf",
     700: "pretendard/dist/public/static/alternative/Pretendard-Bold.ttf",
     800: "pretendard/dist/public/static/alternative/Pretendard-ExtraBold.ttf",
+    900: "pretendard/dist/public/static/alternative/Pretendard-Black.ttf",
   },
   mono: {
     700: "@fontsource/jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff2",
@@ -52,7 +55,7 @@ export { esc };
 export class Canvas {
   constructor({ width, height, title, desc }) {
     Object.assign(this, { width, height, title, desc });
-    this.used = { sans: { 500: "", 700: "", 800: "" }, mono: { 700: "", 800: "" } };
+    this.used = { sans: { 500: "", 700: "", 800: "", 900: "" }, mono: { 700: "", 800: "" } };
   }
 
   // 글자 조각. weight 500/700/800, anchor start/middle/end

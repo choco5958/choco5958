@@ -12,10 +12,11 @@ export const heroIntroFingerprint = () => {
   const profile = JSON.parse(read("scripts/data/profile.json"));
   const drawn = {
     company: { firstDay: company.firstDay, lastDay: company.lastDay, commits: company.commits, daily: company.daily },
-    profile: { name: profile.name, roleLine: profile.roleLine, tagline: profile.tagline, taglineMobile: profile.taglineMobile, contact: profile.contact },
+    profile: { name: profile.name, roleLine: profile.roleLine, tagline: profile.tagline, taglineMobile: profile.taglineMobile, contact: profile.contact, mold: profile.mold },
+    cards: company.cards,
   };
   const hash = createHash("sha256").update(JSON.stringify(drawn));
-  for (const file of ["motion/src/Hero.jsx", "motion/src/index.jsx", "scripts/lib/data.mjs"]) hash.update(read(file));
+  for (const file of ["motion/src/Board.jsx", "motion/src/index.jsx", "scripts/lib/data.mjs"]) hash.update(read(file));
   return hash.digest("hex").slice(0, 16);
 };
 export const HERO_INTRO_MANIFEST = "assets/hero-intro.json";

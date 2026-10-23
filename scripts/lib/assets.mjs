@@ -48,8 +48,10 @@ export async function mold(t, profile) {
     parts.push(`<rect x="${x.toFixed(1)}" y="${sy}" width="${sw.toFixed(1)}" height="${sh}" rx="16" fill="${t.heat[3]}"/>`);
     // 바의 홈 두 줄
     for (const k of [1, 2]) parts.push(`<rect x="${(x + 12).toFixed(1)}" y="${sy + 46 * k + 6}" width="${(sw - 24).toFixed(1)}" height="5" rx="2.5" fill="${t.heat[4]}" opacity="0.45"/>`);
-    parts.push(c.text(cx, sy + 40, name, { size: 21, weight: 800, fill: "#FFF7F0", anchor: "middle" }));
-    parts.push(c.text(cx, sy + sh - 22, m.serviceSub, { size: 13.5, weight: 700, fill: "#FFE9D8", anchor: "middle" }));
+    // 바 색이 밝으면(다크 테마) 짙은 글자, 어두우면(라이트 테마) 흰 글자
+    const barInk = isLight(t.heat[3]) ? "#161C1A" : "#FFFFFF";
+    parts.push(c.text(cx, sy + 40, name, { size: 21, weight: 800, fill: barInk, anchor: "middle" }));
+    parts.push(c.text(cx, sy + sh - 22, m.serviceSub, { size: 15, weight: 700, fill: barInk, anchor: "middle" }));
   });
 
   // 받침: 인프라 표준
@@ -82,45 +84,6 @@ export async function metrics(t, profile) {
     const delta = r.higherIsBetter ? `+${r.after - r.before}${r.unit}` : `−${Math.round((1 - r.after / r.before) * 100)}%`;
     parts.push(c.text(W - 40, y + 50, delta, { size: 36, weight: 800, fill: t.accent, anchor: "end" }));
   });
-  return c.render(parts.join("\n"));
-}
-
-// 5. 일별 커밋 막대 + 누적 선. 격자선 없이 꼭 필요한 숫자만 그림 위에 적는다
-export async function daily(t, profile, company) {
-  const H = 340;
-  const c = new Canvas({ width: W, height: H, title: "아이엔지스토리 일별 커밋", desc: `${company.firstDay}부터 ${company.lastDay}까지 하루 커밋 수와 누적. 가장 많은 날은 ${company.peak.day}, ${company.peak.commits}건.` });
-  const parts = [`<rect width="${W}" height="${H}" rx="24" fill="${t.surface}"/>`];
-  parts.push(c.text(40, 58, "하루하루 쌓인 커밋", { size: 26, weight: 800, fill: t.ink }));
-  parts.push(c.rich(40, 90, [[`${company.activeDays}일 동안 커밋했습니다. `, { weight: 700, fill: t.ink }], ["막대", { weight: 700, fill: t.heat[3] }], ["는 하루, ", { fill: t.sub }], ["민트 선", { weight: 700, fill: t.accent }], ["은 누적입니다.", { fill: t.sub }]], { size: 17 }));
-
-  const start = mondayOf(day(company.firstDay));
-  const end = day(company.lastDay);
-  const n = Math.round((end - start) / 86400000) + 1;
-  const left = 40, right = W - 150, top = 120, bottom = H - 62;
-  const step = (right - left) / n;
-  const y = (v) => bottom - (v / company.peak.commits) * (bottom - top);
-  const yc = (v) => bottom - (v / company.commits) * (bottom - top);
-  let cum = 0;
-  const pts = [];
-  for (let i = 0; i < n; i++) {
-    const d = addDays(start, i);
-    const v = company.daily[iso(d)] || 0;
-    cum += v;
-    const x = left + i * step;
-    if (v) parts.push(`<rect x="${(x + step * 0.14).toFixed(1)}" y="${y(v).toFixed(1)}" width="${(step * 0.72).toFixed(1)}" height="${(bottom - y(v)).toFixed(1)}" rx="2.5" fill="${t.heat[Math.max(2, level(v, company.peak.commits))]}"/>`);
-    if (d >= day(company.firstDay)) pts.push(`${(x + step / 2).toFixed(1)},${yc(cum).toFixed(1)}`);
-    if (d.getUTCDate() === 1) parts.push(c.text(x, bottom + 34, `${d.getUTCMonth() + 1}월`, { size: 16, weight: 700, fill: t.sub }));
-  }
-  parts.push(`<rect x="${left}" y="${bottom}" width="${right - left}" height="3" rx="1.5" fill="${t.surface2}"/>`);
-  parts.push(`<polyline points="${pts.join(" ")}" fill="none" stroke="${t.accent}" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>`);
-  const [ex, ey] = pts.at(-1).split(",").map(Number);
-  parts.push(`<circle cx="${ex}" cy="${ey}" r="6" fill="${t.accent}"/>`);
-  parts.push(c.text(ex + 16, ey + 2, fmt(company.commits), { size: 24, weight: 800, fill: t.accent }));
-  parts.push(c.text(ex + 16, ey + 24, "누적", { size: 15, weight: 700, fill: t.sub }));
-
-  const pi = Math.round((day(company.peak.day) - start) / 86400000);
-  const px = left + pi * step + step / 2, py = y(company.peak.commits);
-  parts.push(c.rich(px - 12, py + 4, [[`${mmdd(day(company.peak.day))} `, { weight: 700, fill: t.sub }], [`${company.peak.commits}건`, { weight: 800, fill: t.ink }]], { size: 16, anchor: "end" }));
   return c.render(parts.join("\n"));
 }
 
@@ -220,8 +183,9 @@ export async function moldMobile(t, profile) {
     parts.push(`<rect x="${bx.toFixed(1)}" y="${by + 6}" width="${bw.toFixed(1)}" height="${bh}" rx="16" fill="${t.heat[4]}" opacity="0.35"/>`);
     parts.push(`<rect x="${bx.toFixed(1)}" y="${by}" width="${bw.toFixed(1)}" height="${bh}" rx="16" fill="${t.heat[3]}"/>`);
     parts.push(`<rect x="${(bx + 14).toFixed(1)}" y="${by + 58}" width="${(bw - 28).toFixed(1)}" height="5" rx="2.5" fill="${t.heat[4]}" opacity="0.45"/>`);
-    parts.push(c.text(bx + bw / 2, by + 44, name, { size: 29, weight: 800, fill: "#FFF7F0", anchor: "middle" }));
-    parts.push(c.text(bx + bw / 2, by + 94, m.serviceSub, { size: 18, weight: 700, fill: "#FFE9D8", anchor: "middle" }));
+    const barInk = isLight(t.heat[3]) ? "#161C1A" : "#FFFFFF";
+    parts.push(c.text(bx + bw / 2, by + 44, name, { size: 29, weight: 800, fill: barInk, anchor: "middle" }));
+    parts.push(c.text(bx + bw / 2, by + 94, m.serviceSub, { size: 18, weight: 700, fill: barInk, anchor: "middle" }));
   });
   y += 3 * (bh + 16) + 8;
   // 받침
@@ -257,4 +221,76 @@ export async function metricsMobile(t, profile) {
     parts.push(c.text(x0 + w2 + 12, y + 158, r.afterText || show(r.after, r), { size: 22, weight: 800, fill: t.ink }));
   });
   return c.render(parts.join("\n"));
+}
+
+// 경력 연표(휴대폰): 최근 것이 위로 오는 세로 노선
+export async function timelineMobile(t, profile) {
+  const jobs = profile.career.filter((e) => e.row === 0).reverse();
+  const study = profile.career.filter((e) => e.row === 1).reverse();
+  const period = (e) => `${e.from.replace("-", ".")} – ${e.to === "now" ? "지금" : e.to.replace("-", ".")}`;
+  const rowH = 96, studyH = 72, top = 48;
+  const H = top + jobs.length * rowH + 40 + study.length * studyH + 36;
+  const c = new Canvas({ width: M, height: H, title: "경력 연표", desc: profile.career.map((e) => `${e.label} ${period(e)}`).join(", ") });
+  const parts = [`<rect width="${M}" height="${H}" rx="28" fill="${t.surface}"/>`];
+  const rx = 64;
+  parts.push(`<rect x="${rx - 3}" y="${top + 10}" width="6" height="${(jobs.length - 1) * rowH}" rx="3" fill="${t.heat[2]}"/>`);
+  jobs.forEach((e, i) => {
+    const y = top + i * rowH;
+    parts.push(`<circle cx="${rx}" cy="${y + 12}" r="${e.current ? 15 : 11}" fill="${e.current ? t.accent : t.surface}" stroke="${e.current ? t.accent : t.heat[3]}" stroke-width="5"/>`);
+    parts.push(c.text(rx + 36, y + 22, e.label, { size: 32, weight: 800, fill: e.current ? t.accent : t.ink }));
+    parts.push(c.text(rx + 36, y + 58, period(e), { size: 22, weight: 500, fill: t.faint }));
+  });
+  let y = top + jobs.length * rowH + 20;
+  parts.push(`<rect x="40" y="${y}" width="${M - 80}" height="3" rx="1.5" fill="${t.surface2}"/>`);
+  y += 44;
+  study.forEach((e, i) => {
+    const yy = y + i * studyH;
+    parts.push(c.text(rx + 36, yy, e.label, { size: 24, weight: 700, fill: t.sub }));
+    parts.push(c.text(rx + 36, yy + 30, period(e), { size: 20, weight: 500, fill: t.faint }));
+    parts.push(`<rect x="${rx - 8}" y="${yy - 18}" width="16" height="16" rx="4" fill="${t.heat[1]}"/>`);
+  });
+  return c.render(parts.join("\n"));
+}
+
+// 기술 스택(휴대폰): 한 줄에 네 칸
+export async function stackMobile(t, profile) {
+  const icons = await import("simple-icons");
+  const perRow = 4, gap = 12, x0 = 32, tile = (M - x0 * 2 - gap * (perRow - 1)) / perRow, th = 116;
+  let y = 8;
+  const parts = [];
+  const c = new Canvas({ width: M, height: 10, title: "", desc: "" });
+  for (const r of profile.stack) {
+    parts.push(c.text(x0, y + 34, r.group, { size: 28, weight: 800, fill: t.ink }));
+    y += 56;
+    r.items.forEach(([name, key], i) => {
+      const x = x0 + (i % perRow) * (tile + gap), yy = y + Math.floor(i / perRow) * (th + gap);
+      parts.push(`<rect x="${x.toFixed(1)}" y="${yy}" width="${tile.toFixed(1)}" height="${th}" rx="18" fill="${t.surface}"/>`);
+      const icon = key && icons[key];
+      if (icon) parts.push(`<g transform="translate(${(x + tile / 2 - 20).toFixed(1)} ${yy + 18}) scale(1.667)"><path d="${icon.path}" fill="${t.heat[4]}"/></g>`);
+      else parts.push(c.text(x + tile / 2, yy + 50, name === "AWS" ? "AWS" : "PW", { size: 28, weight: 900, fill: t.heat[4], anchor: "middle" }));
+      parts.push(c.text(x + tile / 2, yy + 94, name, { size: name.length > 9 ? 17 : 20, weight: 700, fill: t.sub, anchor: "middle" }));
+    });
+    y += Math.ceil(r.items.length / perRow) * (th + gap) + 20;
+  }
+  const H = y;
+  const canvas = new Canvas({ width: M, height: H, title: "기술 스택", desc: profile.stack.map((r) => `${r.group}: ${r.items.map(([n]) => n).join(", ")}`).join(" / ") });
+  canvas.used = c.used;
+  return canvas.render(parts.join("\n"));
+}
+
+// 배지: 라이트·다크 어디서나 같은 보드 색이라 한 장씩만 만든다. { 파일 이름: SVG }
+export async function badges(t, profile) {
+  const out = {};
+  const pill = async (label, { fill, ink, mark, h = 44, size = 18 }) => {
+    const w = Math.round(textWidth(label, size) + 56);
+    const c = new Canvas({ width: w, height: h, title: label, desc: label });
+    const parts = [`<rect width="${w}" height="${h}" rx="${h / 2}" fill="${fill}"/>`];
+    parts.push(`<rect x="18" y="${h / 2 - 5}" width="10" height="10" rx="3" fill="${mark}"/>`);
+    parts.push(c.text(38, h / 2 + size * 0.36, label, { size, weight: 700, fill: ink }));
+    return c.render(parts.join(""));
+  };
+  for (const [key, label] of Object.entries(profile.nav)) out[`nav-${key}`] = await pill(label, { fill: "#1F2725", ink: "#E3E2DA", mark: "#9FC7B8" });
+  out["status-live"] = await pill("운영 중", { fill: "#9FC7B8", ink: "#161C1A", mark: "#161C1A", h: 32, size: 15 });
+  out["status-dev"] = await pill("개발 중", { fill: "#28322F", ink: "#E3E2DA", mark: "#9AA09A", h: 32, size: 15 });
+  return out;
 }

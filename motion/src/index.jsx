@@ -1,10 +1,10 @@
 import { Composition, continueRender, delayRender, registerRoot, staticFile } from "remotion";
-import { Hero, heroSize, heroTiming } from "./Hero.jsx";
+import { Board, boardSize, boardTiming } from "./Board.jsx";
 
 // Pretendard 를 다 읽은 뒤에 프레임을 찍는다(글꼴이 늦게 붙으면 첫 프레임 글자 폭이 달라진다)
 const fontsReady = delayRender("Pretendard");
 Promise.all(
-  [["500", "Pretendard-Medium.ttf"], ["700", "Pretendard-Bold.ttf"], ["800", "Pretendard-ExtraBold.ttf"]].map(([weight, file]) =>
+  [["500", "Pretendard-Medium.ttf"], ["700", "Pretendard-Bold.ttf"], ["800", "Pretendard-ExtraBold.ttf"], ["900", "Pretendard-Black.ttf"]].map(([weight, file]) =>
     new FontFace("LP Sans", `url(${staticFile(file)})`, { weight }).load().then((face) => document.fonts.add(face)),
   ),
 ).then(() => continueRender(fontsReady));
@@ -19,11 +19,11 @@ const Root = () => (
       Object.entries(PAGES).map(([theme, page]) => (
         <Composition
           key={`${mobile}-${theme}`}
-          id={`Hero${mobile ? "Mobile" : ""}${theme === "dark" ? "Dark" : "Light"}`}
-          component={Hero}
+          id={`Board${mobile ? "Mobile" : ""}${theme === "dark" ? "Dark" : "Light"}`}
+          component={Board}
           fps={FPS}
-          durationInFrames={heroTiming(FPS)}
-          {...heroSize(mobile)}
+          durationInFrames={boardTiming(FPS)}
+          {...boardSize(mobile)}
           defaultProps={{ page, mobile }}
         />
       )),

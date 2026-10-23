@@ -15,6 +15,11 @@ const company = load("company");
 
 const outputs = new Map();
 for (const [name, make] of Object.entries(assets)) {
+  // 배지는 테마와 상관없이 한 벌만
+  if (name === "badges") {
+    for (const [file, svg] of Object.entries(await make(THEMES.dark, profile, company))) outputs.set(`assets/badges/${file}.svg`, svg);
+    continue;
+  }
   for (const [theme, tokens] of Object.entries(THEMES)) {
     // heroMobile → hero-mobile-light.svg
     const file = name.replace(/[A-Z]/g, (ch) => `-${ch.toLowerCase()}`);
@@ -68,7 +73,7 @@ if (check) {
   }
   console.log(`그림 ${outputs.size - 1}장과 README 숫자가 자료와 같습니다.`);
 } else {
-  mkdirSync(`${root}assets`, { recursive: true });
+  mkdirSync(`${root}assets/badges`, { recursive: true });
   for (const [path, body] of outputs) {
     writeFileSync(`${root}${path}`, body);
     if (path.endsWith(".svg")) console.log(`${path}  ${(body.length / 1024).toFixed(1)}KB`);
