@@ -1,76 +1,14 @@
 // 프로필 그림. 각 함수는 (테마 색, 프로필, 회사 자료) 를 받아 SVG 문자열을 돌려준다.
 // 장식(고정폭 캡션·번호·가는 테두리·깜빡임) 없이, 채운 면과 큰 글자와 실제 숫자로만 짓는다.
-import { Canvas, fmt } from "./design.mjs";
+import { Canvas } from "./design.mjs";
+import { day, iso, addDays, mondayOf, weeks, level, isLight, fmt } from "./data.mjs";
 
 const W = 1200;
 
-// 'YYYY-MM-DD' 를 UTC 정오 날짜로 (시간대에 흔들리지 않게)
-const day = (s) => new Date(`${s}T12:00:00Z`);
-const iso = (d) => d.toISOString().slice(0, 10);
-const addDays = (d, n) => new Date(d.getTime() + n * 86400000);
-const mondayOf = (d) => addDays(d, -((d.getUTCDay() + 6) % 7));
 const mmdd = (d) => `${d.getUTCMonth() + 1}월 ${d.getUTCDate()}일`;
-
-function weeks(company) {
-  const start = mondayOf(day(company.firstDay));
-  const end = day(company.lastDay);
-  const out = [];
-  for (let w = start; w <= end; w = addDays(w, 7)) {
-    let sum = 0;
-    for (let i = 0; i < 7; i++) sum += company.daily[iso(addDays(w, i))] || 0;
-    out.push({ start: w, commits: sum, partial: addDays(w, 6) > end });
-  }
-  return out;
-}
-
-const level = (value, max) => (value === 0 ? 0 : Math.min(4, 1 + Math.floor((value / max) * 3.999)));
-
-// 칸 색이 밝으면 짙은 글자, 어두우면 밝은 글자
-const isLight = (hex) => {
-  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
-  return 0.299 * r + 0.587 * g + 0.114 * b > 150;
-};
 
 const textWidth = (label, size) =>
   [...label].reduce((w, ch) => w + (/[가-힣]/.test(ch) ? size * 0.92 : ch === " " ? size * 0.26 : /[0-9]/.test(ch) ? size * 0.6 : size * 0.55), 0);
-
-// 1. 첫 화면: 코코아 바탕 전체, 이름과 한 줄 소개, 주별 커밋을 초콜릿 바로
-export async function hero(t, profile, company) {
-  const list = weeks(company).slice(-12);
-  const H = 450;
-  const f = t.field;
-  const c = new Canvas({ width: W, height: H, title: `${profile.name} — ${profile.roleLine}`, desc: `${profile.tagline.join(" ")} 오른쪽 초콜릿 바는 아이엔지스토리 ${list.length}주 동안 주마다 남긴 커밋 수(합계 ${fmt(company.commits)}건)입니다.` });
-  const parts = [`<rect width="${W}" height="${H}" rx="24" fill="${f.bg}"/>`];
-  parts.push(c.text(64, 168, profile.name, { size: 112, weight: 800, fill: f.ink, spacing: -3 }));
-  parts.push(c.text(68, 222, profile.roleLine, { size: 24, weight: 700, fill: f.mint }));
-  profile.tagline.forEach((line, i) => parts.push(c.text(68, 296 + i * 42, line, { size: 29, weight: 700, fill: i ? f.sub : f.ink, spacing: -0.4 })));
-  parts.push(c.text(68, 408, profile.contact, { size: 19, weight: 500, fill: f.sub }));
-
-  // 4×3 초콜릿 바. 칸 하나가 한 주, 진할수록 커밋이 많은 주
-  const max = Math.max(...list.map((w) => w.commits));
-  const cols = 4, gap = 10, cw = 92, ch = 88;
-  const bw = cols * cw + (cols - 1) * gap + 32, bh = 3 * ch + 2 * gap + 32;
-  const bx = W - 56 - bw, by = 44;
-  parts.push(`<rect x="${bx}" y="${by + 8}" width="${bw}" height="${bh}" rx="20" fill="#000" opacity="0.28"/>`);
-  parts.push(`<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="20" fill="${f.mold}"/>`);
-  list.forEach((w, i) => {
-    const sx = bx + 16 + (i % cols) * (cw + gap), sy = by + 16 + Math.floor(i / cols) * (ch + gap);
-    const fill = f.heat[Math.max(0, level(w.commits, max))];
-    const ink = isLight(fill) ? f.mold : f.ink;
-    parts.push(`<g class="seg" style="animation-delay:${(i * 0.07).toFixed(2)}s">`);
-    parts.push(`<rect x="${sx}" y="${sy + 4}" width="${cw}" height="${ch - 4}" rx="12" fill="#000" opacity="0.35"/>`);
-    parts.push(`<rect x="${sx}" y="${sy}" width="${cw}" height="${ch - 4}" rx="12" fill="${fill}"/>`);
-    parts.push(`<rect x="${sx + 8}" y="${sy + 6}" width="${cw - 16}" height="5" rx="2.5" fill="#FFF" opacity="${isLight(fill) ? 0.4 : 0.14}"/>`);
-    parts.push(c.text(sx + 14, sy + 34, `${w.start.getUTCMonth() + 1}.${w.start.getUTCDate()}`, { size: 14, weight: 700, fill: ink, extra: ` opacity="0.8"` }));
-    parts.push(c.text(sx + 14, sy + 70, fmt(w.commits), { size: 28, weight: 800, fill: ink }));
-    if (w.partial) parts.push(`<rect x="${sx + 1.5}" y="${sy + 1.5}" width="${cw - 3}" height="${ch - 7}" rx="11" fill="none" stroke="${f.mint}" stroke-width="3"/>`);
-    parts.push(`</g>`);
-  });
-  parts.push(c.rich(bx + bw, by + bh + 50, [[`아이엔지스토리 ${list.length}주, 한 칸이 한 주의 커밋 · `, { weight: 500, fill: f.sub }], ["민트 테두리", { weight: 700, fill: f.mint }], ["는 이번 주", { weight: 500, fill: f.sub }]], { size: 17, anchor: "end" }));
-
-  const css = `.seg{transform-box:fill-box;transform-origin:center;animation:pop .8s cubic-bezier(.2,.8,.2,1) both}@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.94)}to{opacity:1;transform:none}}`;
-  return c.render(parts.join("\n"), { css });
-}
 
 // 3. 한 틀로 찍어내는 구조: 위는 공통 코어(틀), 가운데는 찍혀 나온 업종 서비스, 아래는 받침이 되는 인프라
 export async function mold(t, profile) {
@@ -252,34 +190,6 @@ export async function stack(t, profile) {
 // README 폭이 360px 안팎이면 1200px 그림의 글자가 5px 까지 줄어든다. 600px 폭으로 따로 그려
 // 화면에서 본문이 16px 안팎이 되게 한다(README 의 <picture> 가 max-width: 600px 일 때 고른다).
 const M = 600;
-
-export async function heroMobile(t, profile, company) {
-  const list = weeks(company).slice(-12);
-  const f = t.field;
-  const cols = 4, gap = 10, pad = 16, bx = 40, bw = M - 80;
-  const cw = (bw - pad * 2 - gap * (cols - 1)) / cols, ch = 92;
-  const by = 400, bh = 3 * ch + 2 * gap + pad * 2;
-  const H = by + bh + 70;
-  const c = new Canvas({ width: M, height: H, title: `${profile.name} — ${profile.roleLine}`, desc: `${profile.tagline.join(" ")} 아래 초콜릿 바는 아이엔지스토리 ${list.length}주 동안 주마다 남긴 커밋 수(합계 ${fmt(company.commits)}건)입니다.` });
-  const parts = [`<rect width="${M}" height="${H}" rx="28" fill="${f.bg}"/>`];
-  parts.push(c.text(40, 138, profile.name, { size: 104, weight: 800, fill: f.ink, spacing: -3 }));
-  parts.push(c.text(44, 194, profile.roleLine, { size: 30, weight: 700, fill: f.mint }));
-  profile.taglineMobile.forEach((line, i) => parts.push(c.text(44, 262 + i * 44, line, { size: 32, weight: 700, fill: i === 2 ? f.sub : f.ink, spacing: -0.5 })));
-  const max = Math.max(...list.map((w) => w.commits));
-  parts.push(`<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="22" fill="${f.mold}"/>`);
-  list.forEach((w, i) => {
-    const sx = bx + pad + (i % cols) * (cw + gap), sy = by + pad + Math.floor(i / cols) * (ch + gap);
-    const fill = f.heat[level(w.commits, max)];
-    const ink = isLight(fill) ? f.mold : f.ink;
-    parts.push(`<rect x="${sx.toFixed(1)}" y="${sy + 4}" width="${cw.toFixed(1)}" height="${ch - 4}" rx="12" fill="#000" opacity="0.35"/>`);
-    parts.push(`<rect x="${sx.toFixed(1)}" y="${sy}" width="${cw.toFixed(1)}" height="${ch - 4}" rx="12" fill="${fill}"/>`);
-    parts.push(c.text(sx + 12, sy + 32, `${w.start.getUTCMonth() + 1}.${w.start.getUTCDate()}`, { size: 20, weight: 700, fill: ink, extra: ` opacity="0.8"` }));
-    parts.push(c.text(sx + 12, sy + 72, fmt(w.commits), { size: 32, weight: 800, fill: ink }));
-    if (w.partial) parts.push(`<rect x="${(sx + 1.5).toFixed(1)}" y="${sy + 1.5}" width="${(cw - 3).toFixed(1)}" height="${ch - 7}" rx="11" fill="none" stroke="${f.mint}" stroke-width="3"/>`);
-  });
-  parts.push(c.text(40, by + bh + 46, `${list.length}주, 한 칸이 한 주의 커밋`, { size: 24, weight: 500, fill: f.sub }));
-  return c.render(parts.join("\n"));
-}
 
 export async function moldMobile(t, profile) {
   const m = profile.mold;

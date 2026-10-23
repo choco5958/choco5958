@@ -1,10 +1,10 @@
 <a name="top"></a>
 
 <picture>
-  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-mobile-dark.svg">
-  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-mobile-light.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-dark.svg">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-light.svg" width="100%" alt="한대현 — 풀스택 개발자, 아이엔지스토리. 공통 코어 하나로 여러 업종 서비스를 찍어내고, 출시와 운영까지 맡는 풀스택 개발자입니다. 오른쪽 초콜릿 바는 아이엔지스토리 12주 동안 주마다 남긴 커밋 수입니다.">
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-mobile-dark.gif">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-mobile-light.gif">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-dark.gif">
+  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-light.gif" width="100%" alt="한대현 — 풀스택 개발자, 아이엔지스토리. 공통 코어 하나로 여러 업종 서비스를 찍어내고, 출시와 운영까지 맡습니다. 오른쪽 초콜릿 틀의 칸은 아이엔지스토리 12주 동안 주마다 남긴 커밋 수입니다.">
 </picture>
 
 <p align="center"><b>채용 · 협업 문의</b> <a href="mailto:choco5958@naver.com">choco5958@naver.com</a></p>
@@ -22,15 +22,15 @@
 
 ## 30초 요약
 
-- **지금** — 아이엔지스토리에서 스터디카페 · 헬스장 같은 매장용 SaaS의 **공통 코어**를 만들고, 그 위에 **업종별 서비스 6종**을 찍어내 운영합니다.
-- **방식** — 일은 작업 카드로 시작해 운영 확인 기록으로 끝냅니다. 구현은 AI 에이전트와 나눠 하고, 무엇이 통과해야 끝인지와 배포 여부는 제가 정합니다.
-- **이전** — 휴넷(프리랜서) · 인라이플 · 파이어볼트 · 디휴브에서 React·Vue·PHP 서비스를 개발했습니다. 응답 속도를 **1.1s → 0.38s**로, Lighthouse 점수를 **68 → 92**로 올렸습니다.
+- **지금** — 매장용 SaaS의 **공통 코어**와 그 위의 **업종별 서비스 6종**을 만들고 운영합니다.
+- **방식** — 통과 조건을 먼저 정합니다. 구현은 AI 에이전트와 나눠 하고, 배포 여부는 제가 정합니다.
+- **이전** — React · Vue · PHP 서비스를 개발했습니다. API 응답 **1.1s → 0.38s**, Lighthouse **68 → 92**.
 
 ## 지금 하는 일
 
 **아이엔지스토리** · 풀스택 개발 · 2026.08 ~ 지금
 
-유·무인 매장(스터디카페, 무인 창고, 헬스장, 연습실 …)을 운영하는 회사입니다. 업종마다 서비스를 따로 만들지 않고, **회원 · 이용권 · 예약 · 결제 · 출입 · 키오스크를 담은 코어 하나**를 업종 서비스들이 버전을 고정해 가져다 쓰는 구조를 만들고 있습니다. 사내 저장소 <!--n:repos-->8<!--/n-->곳에서 <!--n:period-->2026.08.06 ~ 10.23<!--/n--> 동안 커밋 <!--n:commits-->3,470<!--/n-->건을 남겼습니다.[^count]
+스터디카페, 무인 창고, 헬스장 같은 매장을 운영하는 회사입니다. 업종마다 서비스를 새로 만들지 않고, 회원 · 예약 · 결제 · 출입 · 키오스크를 담은 **공통 코어 하나**에 업종 서비스를 얹는 구조를 만들고 있습니다. 사내 저장소 <!--n:repos-->8<!--/n-->곳에 커밋 <!--n:commits-->3,470<!--/n-->건을 남겼습니다.[^count]
 
 <picture>
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-mobile-dark.svg">
@@ -41,30 +41,31 @@
 
 ### 공통 코어 · 디자인 시스템 <sub>커밋 <!--n:area_core-->958<!--/n-->건 · <!--n:pct_core-->28%<!--/n--></sub>
 
-- 업종 서비스가 함께 쓰는 앱 코어 **7개 패키지**: 서버, DB, API 클라이언트, 본사 콘솔, 지점 어드민, 고객 웹, 키오스크 웹
-- 코어를 **4주 동안 0.1.0 → 0.1.115**까지 배포했습니다. DB 이관 **147개**에는 테넌트별 행 격리(RLS), 직원 권한·감사 기록, 가상계좌·환불, 수영 강습 반 편성 등이 들어 있습니다.
-- 개인정보(인증번호·발송 기록)를 **암호화하고 기존 행을 채운 뒤 대조**했습니다. 암호화 백업은 키를 바꿔 가며 복구 리허설까지 했습니다.
-- **디자인 시스템 6.0**, 키오스크 공용 킷 1.6, 문자·알림톡 SDK를 사내 패키지 저장소로 배포합니다. 화면이 달라지면 배포를 막는 시각 회귀 검사도 두었습니다.
+- 서버, DB, API 클라이언트, 화면 4종(본사 · 지점 · 고객 · 키오스크)을 **7개 패키지**로 나눴습니다.
+- 4주 동안 **0.1.0 → 0.1.115**까지 배포했습니다. DB 이관은 **147개**입니다.
+- 업체끼리 데이터가 섞이지 않게 **DB에서 행 단위로 막았습니다**(RLS).
+- 인증번호와 발송 기록을 **암호화**하고, 기존 데이터와 하나하나 대조했습니다.
+- **디자인 시스템 6.0**을 만들고, 화면이 바뀌면 배포를 막는 검사를 두었습니다.
 
 ### 업종별 서비스 6종 <sub>커밋 <!--n:area_saas-->1,652<!--/n-->건 · <!--n:pct_saas-->48%<!--/n--></sub>
 
-- 무인 창고 · 웰니스 · 보드게임 카페 · 복합문화공간 · 음악 연습실 · 헬스장
-- 서비스마다 <b>고객 웹 · 지점 어드민 · 본사 콘솔 · 키오스크(안드로이드 · 토스 단말)</b>를 한 묶음으로 만들고, 도메인 전환까지 마쳤습니다.
-- 고객 앱을 **App Store · Google Play**에 냈습니다. 심사 반려(4.2) 사유를 고쳐 다시 제출했고, 토스 키오스크 앱 심사 반려도 고쳐 통과시켰습니다.
-- 매장 요청을 기능으로 옮겼습니다. 만석일 때 대기 등록 후 자리가 나면 문자 알림, 카드 결제를 환불하면 이용권과 출입 권한 회수, 1/N 분할 정산 등입니다.
+- 무인 창고, 웰니스, 보드게임 카페, 복합문화공간, 음악 연습실, 헬스장.
+- 서비스마다 고객 웹, 지점 관리자, 본사 콘솔, 키오스크를 **한 묶음으로** 만들었습니다.
+- 고객 앱을 **App Store와 Google Play**에 냈습니다. 심사 반려는 고쳐서 다시 냈습니다.
+- 매장 요청을 기능으로 옮겼습니다. 만석 대기 알림, 환불할 때 출입 권한 회수, 1/N 정산 등입니다.
 
 ### 인프라 · 배포 표준 <sub>커밋 <!--n:area_infra-->694<!--/n-->건 · <!--n:pct_infra-->20%<!--/n--></sub>
 
-- Terraform 공용 모듈 **20개**와 새 서비스 찍어내기 스크립트를 만들었습니다. 명령 한 줄로 인증서, 소개 사이트, 파이프라인, 서버(VPC · ECS · ALB · WAF)가 생깁니다.
-- 배포 시간을 **16.0분 → 9.4분**, **14.1분 → 8분대**로 줄였습니다. 모두 같은 파이프라인에서 잰 전후 값입니다.
-- 매일 백업 하나를 **새 DB에 풀어 표마다 행 수를 운영 DB와 대조**합니다. 행 격리 설정이 빠지면 실패로 처리합니다.
-- 서버를 **ARM64**로 옮기고 NAT 게이트웨이를 NAT 인스턴스로 바꿔 비용을 줄였습니다. 저장소와 CI는 GitLab에서 AWS CodeCommit · CodeBuild · CodeArtifact로 옮겼습니다.
+- Terraform 공용 모듈 **20개**를 만들었습니다. 명령 한 줄로 새 서비스의 인프라가 생깁니다.
+- 배포 시간을 **16.0분 → 9.4분**, **14.1분 → 8분대**로 줄였습니다.
+- 매일 백업을 새 DB에 풀어 **운영 DB와 행 수를 대조**합니다.
+- 서버를 **ARM64**로 옮겨 비용을 줄였고, 저장소와 CI를 AWS로 옮겼습니다.
 
 ### 상담 플랫폼 기여 <sub>커밋 <!--n:area_cx-->166<!--/n-->건 · <!--n:pct_cx-->5%<!--/n--></sub>
 
-- 기존 외부 상담 도구를 대신할 자체 상담 플랫폼에 참여했습니다. 상담원 데스크를 고치고, 저장해 둔 답변(상용구)을 옮겨 오는 기능을 만들었습니다.
-- 네이버 채널 연동을 **기능 스위치를 끈 채** 단계별로 들였습니다(큐 · 암호 키 · 발송 서비스).
-- 고객 위젯에 안 읽음 배지를 달고, 전환 직전에 답하지 않은 대화를 찾는 점검 쿼리를 만들었습니다.
+- 외부 상담 도구를 대신할 자체 상담 플랫폼 개발에 참여했습니다.
+- 기존 도구의 저장 답변을 옮겨 오는 기능과 안 읽음 배지를 만들었습니다.
+- 네이버 채널 연동을 **기능 스위치를 끈 채** 단계별로 들였습니다.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/daily-dark.svg">
@@ -101,11 +102,11 @@ flowchart LR
     O -.->|"공통 규칙은 한 곳에서 고쳐 모든 저장소로"| C
 ```
 
-- **카드로 시작해 운영 확인으로 끝냅니다.** 기능 <!--n:feat-->273<!--/n--> · 버그 <!--n:bug-->90<!--/n--> · 운영 <!--n:ops-->180<!--/n--> 카드, 결정 기록 <!--n:adr-->191<!--/n-->건을 남겼습니다.
-- **"코드 완료"와 "매장에서 동작"을 구분해 적습니다.** 실제 업체 연동이나 실매장 적용이 남았으면 완료로 쓰지 않습니다.
-- **새 기능은 스위치를 끈 채 배포합니다.** 운영 반영은 한 번에 하나씩 하고, 배포 결과를 카드에 남깁니다.
-- **버전이 어긋나면 배포가 멈춥니다.** 운영 DB보다 새 스키마를 기대하는 코드는 배포를 막고, 패키지 버전이 어긋나면 출시 검사에서 거절합니다.
-- **AI 작업 규칙은 한 저장소에서 관리합니다.** 바꾼 규칙은 스크립트로 모든 프로젝트에 반영하고, 하루 일은 세션 기록과 git 이력을 대조한 퇴근보고로 닫습니다.
+- **카드로 시작해 운영 확인으로 끝냅니다.** 기능 <!--n:feat-->273<!--/n--> · 버그 <!--n:bug-->90<!--/n--> · 운영 <!--n:ops-->180<!--/n--> 카드와 결정 기록 <!--n:adr-->191<!--/n-->건을 남겼습니다.
+- **"코드 완료"와 "매장에서 동작"을 나눠 적습니다.** 실매장 적용이 남았으면 완료로 쓰지 않습니다.
+- **새 기능은 스위치를 끈 채 배포합니다.** 운영 반영은 한 번에 하나씩 합니다.
+- **버전이 어긋나면 배포가 멈춥니다.** DB와 코드, 패키지 버전이 맞지 않으면 자동으로 거절합니다.
+- **AI 작업 규칙은 한 곳에서 고칩니다.** 바뀐 규칙은 모든 저장소에 한 번에 반영합니다.
 
 <div align="right"><a href="#top">↑ 위로</a></div>
 
@@ -190,10 +191,10 @@ flowchart LR
 
 | 제품 | 한 줄 |
 | :-- | :-- |
-| **루픽 LOOPIC**<br/><sub>개발 중</sub> | 인스타 · 스레드 · 유튜브 · 틱톡 · 네이버 채널별로 소재 → 제작 → 검토 · 게시 → 성과까지 잇는 SNS 수익화 자동화. Next.js 16 · Drizzle · PostgreSQL |
-| **[DDakDeal](https://ddakdeal.com)**<br/><sub>운영 중</sub> | 전문가 매칭 플랫폼. 결제 웹훅을 멱등하게 처리하고 트랜잭션으로 묶어 데이터 무결성 확보, 웹 · Android · iOS를 한 코드로. Next.js · Supabase · Capacitor |
-| **[FastBizKit](https://fastbizkit.com)**<br/><sub>운영 중</sub> | 도구 100개 이상(경로 240개 이상)의 업무 도구 모음. FFmpeg.wasm · pdf-lib로 파일을 브라우저에서 처리. Next.js · Cloudflare · Vercel |
-| **[image-crop-app](https://github.com/choco5958/image-crop-app)**<br/><sub>개발 중</sub> | 이미지 자르기 · 보정 모바일 앱. Expo · React Native |
+| **루픽 LOOPIC**<br/><sub>개발 중</sub> | SNS 채널별로 소재 찾기부터 제작, 게시, 성과까지 잇는 수익화 자동화.<br/><sub>Next.js 16 · Drizzle · PostgreSQL</sub> |
+| **[DDakDeal](https://ddakdeal.com)**<br/><sub>운영 중</sub> | 전문가 매칭 플랫폼. 결제 웹훅을 한 번만 처리되게 묶고, 웹과 앱을 한 코드로 만들었습니다.<br/><sub>Next.js · Supabase · Capacitor</sub> |
+| **[FastBizKit](https://fastbizkit.com)**<br/><sub>운영 중</sub> | 100가지가 넘는 업무 도구 모음. 파일을 서버에 올리지 않고 브라우저에서 처리합니다.<br/><sub>Next.js · FFmpeg.wasm · pdf-lib · Cloudflare</sub> |
+| **[image-crop-app](https://github.com/choco5958/image-crop-app)**<br/><sub>개발 중</sub> | 이미지 자르기와 보정을 하는 모바일 앱.<br/><sub>Expo · React Native</sub> |
 
 ## 기술 스택
 
@@ -220,4 +221,4 @@ flowchart LR
 
 <p align="center"><b>풀스택 · 프론트엔드 · 백엔드 포지션과 협업 제안을 기다립니다.</b><br/><a href="mailto:choco5958@naver.com">choco5958@naver.com</a></p>
 
-[^count]: 회사 저장소 <!--n:repos-->8<!--/n-->곳에서 본인 이메일로 남긴 커밋만, 병합 커밋을 빼고 중복 없이 셌습니다(<!--n:generatedAt-->2026-10-23<!--/n--> 기준, 최다일 <!--n:peak-->10.08 · 255건<!--/n-->). 상당수는 AI 에이전트와 작업 단위로 나눠 남긴 커밋이라 직접 친 코드의 양과는 다릅니다. 영역은 저장소별로 나누되, 커밋 제목의 범위가 infra · ci · ops 등이면 인프라로 셌습니다. 저장소 이름과 사내 브랜드는 싣지 않았습니다.
+[^count]: 회사 저장소 <!--n:repos-->8<!--/n-->곳에서 본인 이메일로 남긴 커밋만 셌습니다. 병합 커밋과 중복은 뺐습니다(<!--n:period-->2026.08.06 ~ 10.23<!--/n-->, 가장 많은 날 <!--n:peak-->10.08 · 255건<!--/n-->). 상당수는 AI 에이전트와 작업 단위로 나눠 남긴 커밋이라, 직접 친 코드의 양과는 다릅니다. 커밋 제목이 infra · ci · ops 같은 범위면 인프라로 셌습니다.

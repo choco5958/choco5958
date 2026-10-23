@@ -5,6 +5,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { THEMES, fmt } from "./lib/design.mjs";
 import * as assets from "./lib/assets.mjs";
 import { joinWords } from "./lib/wordjoin.mjs";
+import { heroIntroFingerprint, HERO_INTRO_MANIFEST } from "./lib/fingerprint.mjs";
 
 const root = new URL("..", import.meta.url).pathname;
 const check = process.argv.includes("--check");
@@ -49,6 +50,13 @@ if (missing.length) {
   process.exit(1);
 }
 outputs.set("README.md", `<!-- 이 파일은 npm run build 가 README.source.md 에서 만든다. 직접 고치지 않는다 -->\n${joinWords(filled)}`);
+
+// 움직이는 첫 화면은 motion/ 에서 따로 렌더한다. 자료가 바뀌었는데 GIF 가 옛 자료 그대로면 알린다
+const intro = existsSync(`${root}${HERO_INTRO_MANIFEST}`) ? JSON.parse(readFileSync(`${root}${HERO_INTRO_MANIFEST}`, "utf8")).fingerprint : null;
+if (intro !== heroIntroFingerprint()) {
+  console.error("첫 화면 GIF 가 지금 자료와 다릅니다. motion/ 에서 npm run render 후 커밋하세요.");
+  if (check) process.exit(1);
+}
 
 if (check) {
   const stale = [...outputs].filter(([path, body]) => !existsSync(`${root}${path}`) || readFileSync(`${root}${path}`, "utf8") !== body).map(([path]) => path);
