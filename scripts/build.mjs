@@ -49,7 +49,9 @@ if (missing.length) {
   console.error(`README 에 모르는 숫자 키: ${missing.join(", ")}`);
   process.exit(1);
 }
-outputs.set("README.md", `<!-- 이 파일은 npm run build 가 README.source.md 에서 만든다. 직접 고치지 않는다 -->\n${joinWords(filled)}`);
+// 숫자 자리 표시는 원본에만 둔다. 남겨 두면 숫자와 뒤 글자(「3,470건」) 사이에 연결 문자가 못 들어간다
+const plain = filled.replace(/<!--n:\w+-->(.*?)<!--\/n-->/g, "$1");
+outputs.set("README.md", `<!-- 이 파일은 npm run build 가 README.source.md 에서 만든다. 직접 고치지 않는다 -->\n${joinWords(plain)}`);
 
 // 움직이는 첫 화면은 motion/ 에서 따로 렌더한다. 자료가 바뀌었는데 GIF 가 옛 자료 그대로면 알린다
 const intro = existsSync(`${root}${HERO_INTRO_MANIFEST}`) ? JSON.parse(readFileSync(`${root}${HERO_INTRO_MANIFEST}`, "utf8")).fingerprint : null;
