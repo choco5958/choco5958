@@ -1,12 +1,15 @@
 <a name="top"></a>
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-dark.svg">
   <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-light.svg" width="100%" alt="한대현 — 풀스택 개발자, 아이엔지스토리. 공통 코어 하나로 여러 업종 서비스를 찍어내고, 출시와 운영까지 맡는 풀스택 개발자입니다. 오른쪽 초콜릿 바는 아이엔지스토리 12주 동안 주마다 남긴 커밋 수입니다.">
 </picture>
 
+<p align="center"><b>채용 · 협업 문의</b> <a href="mailto:choco5958@naver.com">choco5958@naver.com</a></p>
+
 <p align="center">
-  <a href="mailto:choco5958@naver.com"><b>choco5958@naver.com</b></a> ·
   <a href="#지금-하는-일">지금 하는 일</a> ·
   <a href="#전후-실측">전후 실측</a> ·
   <a href="#일하는-방식">일하는 방식</a> ·
@@ -23,11 +26,6 @@
 - **방식** — 일은 작업 카드로 시작해 운영 확인 기록으로 끝냅니다. 구현은 AI 에이전트와 나눠 하고, 무엇이 통과해야 끝인지와 배포 여부는 제가 정합니다.
 - **이전** — 휴넷(프리랜서)·인라이플·파이어볼트·디휴브에서 React·Vue·PHP 서비스를 개발했습니다. 응답 속도를 **1.1s → 0.38s**로, Lighthouse 점수를 **68 → 92**로 올렸습니다.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/stats-dark.svg">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/stats-light.svg" width="100%" alt="개발 경력 5년 이상, 회사 커밋 3,470건, 커밋한 날 54일, 사내 저장소 8곳, 작업 카드 734장">
-</picture>
-
 ## 지금 하는 일
 
 **아이엔지스토리** · 풀스택 개발 · 2026.08 ~ 지금
@@ -35,6 +33,8 @@
 유·무인 매장(스터디카페, 무인 창고, 헬스장, 연습실 …)을 운영하는 회사입니다. 업종마다 서비스를 따로 만들지 않고, **회원·이용권·예약·결제·출입·키오스크를 담은 코어 하나**를 업종 서비스들이 버전을 고정해 가져다 쓰는 구조를 만들고 있습니다. 사내 저장소 <!--n:repos-->8<!--/n-->곳에서 <!--n:period-->2026.08.06 ~ 10.23<!--/n--> 동안 커밋 <!--n:commits-->3,470<!--/n-->건을 남겼습니다.[^count]
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-dark.svg">
   <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-light.svg" width="100%" alt="한 틀로 찍어내는 구조: 위는 공통 코어(서버, DB, API 클라이언트, 본사 콘솔, 지점 어드민, 고객 웹, 키오스크 웹), 가운데는 거기서 찍어낸 업종 서비스 6종(무인 창고, 웰니스, 보드게임 카페, 복합문화공간, 음악 연습실, 헬스장), 아래는 받침이 되는 인프라 표준(Terraform 공용 모듈 20개, 새 서비스 찍어내기 스크립트, 매일 백업 복원 대조, ARM64).">
 </picture>
@@ -78,6 +78,8 @@
 같은 조건에서 바꾸기 전과 후를 잰 값만 실었습니다.
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-dark.svg">
   <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-light.svg" width="100%" alt="전후 실측: 배포 파이프라인 16.0분에서 9.4분(−41%), 배포 시간 14.1분에서 8분대(−43%), ESLint 오류 129건에서 0건(이상 아이엔지스토리), API 응답 1.1s에서 0.38s(−65%), Lighthouse 68점에서 92점(+24점, 이상 파이어볼트).">
 </picture>
@@ -142,24 +144,8 @@ flowchart LR
 - 대량 조건을 그릴 때 생기는 렌더링 병목을 찾아 컴포넌트 구조 개선
 - 퍼널 · 리텐션 데이터로 발송 대상 세분화
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-**DBAY** · 인라이플 · <sub>서비스 종료</sub>
-- React · Next.js · TypeScript 초기 구조 설계
-- 유입을 고려한 렌더링 방식 선택, ESLint · Prettier 규칙 정립
-
 **[Shortpang](https://mobile.shortpang.com)** · 인라이플
 - 합류 직후 구조 파악, 렌더링 병목과 런타임 오류 감소
-
-</td>
-<td width="50%" valign="top">
-
-**[Shoplus](https://play.google.com/store/apps/details?id=com.enliple.shopplusapp)** · 인라이플
-- PHP · MySQL 프론트와 백오피스, 결제 · 적립 예외 정리
-- Git 기반 배포 절차로 사람 실수 감소
 
 </td>
 </tr>
@@ -174,6 +160,19 @@ flowchart LR
 
 </td>
 <td width="50%" valign="top">
+
+**DBAY** · 인라이플 · <sub>서비스 종료</sub>
+- React · Next.js · TypeScript 초기 구조 설계
+- 유입을 고려한 렌더링 방식 선택, ESLint · Prettier 규칙 정립
+
+**[Shoplus](https://play.google.com/store/apps/details?id=com.enliple.shopplusapp)** · 인라이플
+- PHP · MySQL 프론트와 백오피스, 결제 · 적립 예외 정리
+- Git 기반 배포 절차로 사람 실수 감소
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top">
 
 **[repickus.com](https://repickus.com)** · 디휴브
 - 단일 입력 페이지를 단계별 입력 흐름으로 개선

@@ -2,12 +2,15 @@
 <a name="top"></a>
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-dark.svg">
   <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-light.svg" width="100%" alt="한대현 — 풀스택 개발자, 아이엔지스토리. 공통 코어 하나로 여러 업종 서비스를 찍어내고, 출시와 운영까지 맡는 풀스택 개발자입니다. 오른쪽 초콜릿 바는 아이엔지스토리 12주 동안 주마다 남긴 커밋 수입니다.">
 </picture>
 
+<p align="center"><b>채⁠용 · 협⁠업 문⁠의</b> <a href="mailto:choco5958@naver.com">choco5958@naver.com</a></p>
+
 <p align="center">
-  <a href="mailto:choco5958@naver.com"><b>choco5958@naver.com</b></a> ·
   <a href="#지금-하는-일">지⁠금 하⁠는 일</a> ·
   <a href="#전후-실측">전⁠후 실⁠측</a> ·
   <a href="#일하는-방식">일⁠하⁠는 방⁠식</a> ·
@@ -24,11 +27,6 @@
 - **⁠방⁠식⁠** — 일⁠은 작⁠업 카⁠드⁠로 시⁠작⁠해 운⁠영 확⁠인 기⁠록⁠으⁠로 끝⁠냅⁠니⁠다⁠. 구⁠현⁠은 AI 에⁠이⁠전⁠트⁠와 나⁠눠 하⁠고⁠, 무⁠엇⁠이 통⁠과⁠해⁠야 끝⁠인⁠지⁠와 배⁠포 여⁠부⁠는 제⁠가 정⁠합⁠니⁠다⁠.
 - **⁠이⁠전⁠** — 휴⁠넷⁠(⁠프⁠리⁠랜⁠서⁠)·⁠인⁠라⁠이⁠플⁠·⁠파⁠이⁠어⁠볼⁠트⁠·⁠디⁠휴⁠브⁠에⁠서 React·Vue·PHP 서⁠비⁠스⁠를 개⁠발⁠했⁠습⁠니⁠다⁠. 응⁠답 속⁠도⁠를 **1.1s → 0.38s**⁠로⁠, Lighthouse 점⁠수⁠를 **68 → 92**⁠로 올⁠렸⁠습⁠니⁠다⁠.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/stats-dark.svg">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/stats-light.svg" width="100%" alt="개발 경력 5년 이상, 회사 커밋 3,470건, 커밋한 날 54일, 사내 저장소 8곳, 작업 카드 734장">
-</picture>
-
 ## 지금 하는 일
 
 **⁠아⁠이⁠엔⁠지⁠스⁠토⁠리⁠** · 풀⁠스⁠택 개⁠발 · 2026.08 ~ 지⁠금
@@ -36,6 +34,8 @@
 유⁠·⁠무⁠인 매⁠장⁠(⁠스⁠터⁠디⁠카⁠페⁠, 무⁠인 창⁠고⁠, 헬⁠스⁠장⁠, 연⁠습⁠실 …)⁠을 운⁠영⁠하⁠는 회⁠사⁠입⁠니⁠다⁠. 업⁠종⁠마⁠다 서⁠비⁠스⁠를 따⁠로 만⁠들⁠지 않⁠고⁠, **⁠회⁠원⁠·⁠이⁠용⁠권⁠·⁠예⁠약⁠·⁠결⁠제⁠·⁠출⁠입⁠·⁠키⁠오⁠스⁠크⁠를 담⁠은 코⁠어 하⁠나⁠**⁠를 업⁠종 서⁠비⁠스⁠들⁠이 버⁠전⁠을 고⁠정⁠해 가⁠져⁠다 쓰⁠는 구⁠조⁠를 만⁠들⁠고 있⁠습⁠니⁠다⁠. 사⁠내 저⁠장⁠소 <!--n:repos-->8<!--/n-->곳⁠에⁠서 <!--n:period-->2026.08.06 ~ 10.23<!--/n--> 동⁠안 커⁠밋 <!--n:commits-->3,470<!--/n-->건⁠을 남⁠겼⁠습⁠니⁠다⁠.[^count]
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-dark.svg">
   <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-light.svg" width="100%" alt="한 틀로 찍어내는 구조: 위는 공통 코어(서버, DB, API 클라이언트, 본사 콘솔, 지점 어드민, 고객 웹, 키오스크 웹), 가운데는 거기서 찍어낸 업종 서비스 6종(무인 창고, 웰니스, 보드게임 카페, 복합문화공간, 음악 연습실, 헬스장), 아래는 받침이 되는 인프라 표준(Terraform 공용 모듈 20개, 새 서비스 찍어내기 스크립트, 매일 백업 복원 대조, ARM64).">
 </picture>
@@ -79,6 +79,8 @@
 같⁠은 조⁠건⁠에⁠서 바⁠꾸⁠기 전⁠과 후⁠를 잰 값⁠만 실⁠었⁠습⁠니⁠다⁠.
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-dark.svg">
   <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-light.svg" width="100%" alt="전후 실측: 배포 파이프라인 16.0분에서 9.4분(−41%), 배포 시간 14.1분에서 8분대(−43%), ESLint 오류 129건에서 0건(이상 아이엔지스토리), API 응답 1.1s에서 0.38s(−65%), Lighthouse 68점에서 92점(+24점, 이상 파이어볼트).">
 </picture>
@@ -143,24 +145,8 @@ flowchart LR
 - 대⁠량 조⁠건⁠을 그⁠릴 때 생⁠기⁠는 렌⁠더⁠링 병⁠목⁠을 찾⁠아 컴⁠포⁠넌⁠트 구⁠조 개⁠선
 - 퍼⁠널 · 리⁠텐⁠션 데⁠이⁠터⁠로 발⁠송 대⁠상 세⁠분⁠화
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-**DBAY** · 인⁠라⁠이⁠플 · <sub>서⁠비⁠스 종⁠료</sub>
-- React · Next.js · TypeScript 초⁠기 구⁠조 설⁠계
-- 유⁠입⁠을 고⁠려⁠한 렌⁠더⁠링 방⁠식 선⁠택⁠, ESLint · Prettier 규⁠칙 정⁠립
-
 **[Shortpang](https://mobile.shortpang.com)** · 인⁠라⁠이⁠플
 - 합⁠류 직⁠후 구⁠조 파⁠악⁠, 렌⁠더⁠링 병⁠목⁠과 런⁠타⁠임 오⁠류 감⁠소
-
-</td>
-<td width="50%" valign="top">
-
-**[Shoplus](https://play.google.com/store/apps/details?id=com.enliple.shopplusapp)** · 인⁠라⁠이⁠플
-- PHP · MySQL 프⁠론⁠트⁠와 백⁠오⁠피⁠스⁠, 결⁠제 · 적⁠립 예⁠외 정⁠리
-- Git 기⁠반 배⁠포 절⁠차⁠로 사⁠람 실⁠수 감⁠소
 
 </td>
 </tr>
@@ -175,6 +161,19 @@ flowchart LR
 
 </td>
 <td width="50%" valign="top">
+
+**DBAY** · 인⁠라⁠이⁠플 · <sub>서⁠비⁠스 종⁠료</sub>
+- React · Next.js · TypeScript 초⁠기 구⁠조 설⁠계
+- 유⁠입⁠을 고⁠려⁠한 렌⁠더⁠링 방⁠식 선⁠택⁠, ESLint · Prettier 규⁠칙 정⁠립
+
+**[Shoplus](https://play.google.com/store/apps/details?id=com.enliple.shopplusapp)** · 인⁠라⁠이⁠플
+- PHP · MySQL 프⁠론⁠트⁠와 백⁠오⁠피⁠스⁠, 결⁠제 · 적⁠립 예⁠외 정⁠리
+- Git 기⁠반 배⁠포 절⁠차⁠로 사⁠람 실⁠수 감⁠소
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top">
 
 **[repickus.com](https://repickus.com)** · 디⁠휴⁠브
 - 단⁠일 입⁠력 페⁠이⁠지⁠를 단⁠계⁠별 입⁠력 흐⁠름⁠으⁠로 개⁠선

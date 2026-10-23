@@ -15,7 +15,9 @@ const company = load("company");
 const outputs = new Map();
 for (const [name, make] of Object.entries(assets)) {
   for (const [theme, tokens] of Object.entries(THEMES)) {
-    outputs.set(`assets/${name}-${theme}.svg`, await make(tokens, profile, company));
+    // heroMobile → hero-mobile-light.svg
+    const file = name.replace(/[A-Z]/g, (ch) => `-${ch.toLowerCase()}`);
+    outputs.set(`assets/${file}-${theme}.svg`, await make(tokens, profile, company));
   }
 }
 

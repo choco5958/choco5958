@@ -37,7 +37,7 @@ const textWidth = (label, size) =>
 // 1. 첫 화면: 코코아 바탕 전체, 이름과 한 줄 소개, 주별 커밋을 초콜릿 바로
 export async function hero(t, profile, company) {
   const list = weeks(company).slice(-12);
-  const H = 460;
+  const H = 450;
   const f = t.field;
   const c = new Canvas({ width: W, height: H, title: `${profile.name} — ${profile.roleLine}`, desc: `${profile.tagline.join(" ")} 오른쪽 초콜릿 바는 아이엔지스토리 ${list.length}주 동안 주마다 남긴 커밋 수(합계 ${fmt(company.commits)}건)입니다.` });
   const parts = [`<rect width="${W}" height="${H}" rx="24" fill="${f.bg}"/>`];
@@ -66,35 +66,10 @@ export async function hero(t, profile, company) {
     if (w.partial) parts.push(`<rect x="${sx + 1.5}" y="${sy + 1.5}" width="${cw - 3}" height="${ch - 7}" rx="11" fill="none" stroke="${f.mint}" stroke-width="3"/>`);
     parts.push(`</g>`);
   });
-  parts.push(c.text(bx + bw, by + bh + 46, `아이엔지스토리 ${list.length}주, 한 칸이 한 주의 커밋입니다`, { size: 17, weight: 500, fill: f.sub, anchor: "end" }));
-  parts.push(c.rich(bx + bw, by + bh + 74, [["민트 테두리", { weight: 700, fill: f.mint }], ["는 아직 끝나지 않은 이번 주", { weight: 500, fill: f.sub }]], { size: 15, anchor: "end" }));
+  parts.push(c.rich(bx + bw, by + bh + 50, [[`아이엔지스토리 ${list.length}주, 한 칸이 한 주의 커밋 · `, { weight: 500, fill: f.sub }], ["민트 테두리", { weight: 700, fill: f.mint }], ["는 이번 주", { weight: 500, fill: f.sub }]], { size: 17, anchor: "end" }));
 
   const css = `.seg{transform-box:fill-box;transform-origin:center;animation:pop .8s cubic-bezier(.2,.8,.2,1) both}@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.94)}to{opacity:1;transform:none}}`;
   return c.render(parts.join("\n"), { css });
-}
-
-// 2. 숫자 다섯 개: 테두리 없이 한 장의 돌 표면 위에
-export async function stats(t, profile, company) {
-  const cardTotal = Object.values(company.cards).reduce((a, b) => a + b, 0);
-  const tiles = [
-    { label: "개발 경력", value: profile.careerYears, unit: "년", sub: profile.careerSince },
-    { label: "회사 커밋", value: fmt(company.commits), unit: "건", sub: "2026년 8월부터" },
-    { label: "커밋한 날", value: String(company.activeDays), unit: "일", sub: `가장 많은 날 ${company.peak.commits}건` },
-    { label: "사내 저장소", value: String(company.repos), unit: "곳", sub: "코어 · 서비스 · 상담" },
-    { label: "작업 카드", value: fmt(cardTotal), unit: "장", sub: "기능 · 버그 · 운영 · 결정" },
-  ];
-  const H = 190;
-  const c = new Canvas({ width: W, height: H, title: "숫자로 본 지금", desc: tiles.map((x) => `${x.label} ${x.value}${x.unit}`).join(", ") });
-  const parts = [`<rect width="${W}" height="${H}" rx="24" fill="${t.surface}"/>`];
-  const cw = (W - 64) / tiles.length;
-  tiles.forEach((tile, i) => {
-    const x = 40 + i * cw;
-    if (i) parts.push(`<rect x="${x - 14}" y="44" width="4" height="${H - 88}" rx="2" fill="${t.surface2}"/>`);
-    parts.push(c.text(x + 4, 56, tile.label, { size: 17, weight: 700, fill: t.sub }));
-    parts.push(c.rich(x, 118, [[tile.value, { weight: 800, fill: t.ink }], [` ${tile.unit}`, { weight: 700, fill: t.sub }]], { size: 50 }));
-    parts.push(c.text(x + 4, 152, tile.sub, { size: 15, weight: 500, fill: t.faint }));
-  });
-  return c.render(parts.join("\n"));
 }
 
 // 3. 한 틀로 찍어내는 구조: 위는 공통 코어(틀), 가운데는 찍혀 나온 업종 서비스, 아래는 받침이 되는 인프라
@@ -178,7 +153,7 @@ export async function daily(t, profile, company) {
   const c = new Canvas({ width: W, height: H, title: "아이엔지스토리 일별 커밋", desc: `${company.firstDay}부터 ${company.lastDay}까지 하루 커밋 수와 누적. 가장 많은 날은 ${company.peak.day}, ${company.peak.commits}건.` });
   const parts = [`<rect width="${W}" height="${H}" rx="24" fill="${t.surface}"/>`];
   parts.push(c.text(40, 58, "하루하루 쌓인 커밋", { size: 26, weight: 800, fill: t.ink }));
-  parts.push(c.rich(40, 88, [["막대", { weight: 700, fill: t.heat[3] }], ["는 하루, ", { fill: t.sub }], ["민트 선", { weight: 700, fill: t.accent }], ["은 누적입니다.", { fill: t.sub }]], { size: 17 }));
+  parts.push(c.rich(40, 90, [[`${company.activeDays}일 동안 커밋했습니다. `, { weight: 700, fill: t.ink }], ["막대", { weight: 700, fill: t.heat[3] }], ["는 하루, ", { fill: t.sub }], ["민트 선", { weight: 700, fill: t.accent }], ["은 누적입니다.", { fill: t.sub }]], { size: 17 }));
 
   const start = mondayOf(day(company.firstDay));
   const end = day(company.lastDay);
@@ -269,6 +244,107 @@ export async function stack(t, profile) {
       else parts.push(c.text(x + tile / 2, y + 46, name === "AWS" ? "AWS" : "PW", { size: 22, weight: 800, fill: t.heat[4], anchor: "middle" }));
       parts.push(c.text(x + tile / 2, y + 86, name, { size: 15, weight: 700, fill: t.sub, anchor: "middle" }));
     });
+  });
+  return c.render(parts.join("\n"));
+}
+
+// ── 휴대폰 전용 세로 그림 ─────────────────────────────────────────────
+// README 폭이 360px 안팎이면 1200px 그림의 글자가 5px 까지 줄어든다. 600px 폭으로 따로 그려
+// 화면에서 본문이 16px 안팎이 되게 한다(README 의 <picture> 가 max-width: 600px 일 때 고른다).
+const M = 600;
+
+export async function heroMobile(t, profile, company) {
+  const list = weeks(company).slice(-12);
+  const f = t.field;
+  const cols = 4, gap = 10, pad = 16, bx = 40, bw = M - 80;
+  const cw = (bw - pad * 2 - gap * (cols - 1)) / cols, ch = 92;
+  const by = 400, bh = 3 * ch + 2 * gap + pad * 2;
+  const H = by + bh + 70;
+  const c = new Canvas({ width: M, height: H, title: `${profile.name} — ${profile.roleLine}`, desc: `${profile.tagline.join(" ")} 아래 초콜릿 바는 아이엔지스토리 ${list.length}주 동안 주마다 남긴 커밋 수(합계 ${fmt(company.commits)}건)입니다.` });
+  const parts = [`<rect width="${M}" height="${H}" rx="28" fill="${f.bg}"/>`];
+  parts.push(c.text(40, 138, profile.name, { size: 104, weight: 800, fill: f.ink, spacing: -3 }));
+  parts.push(c.text(44, 194, profile.roleLine, { size: 30, weight: 700, fill: f.mint }));
+  profile.taglineMobile.forEach((line, i) => parts.push(c.text(44, 262 + i * 44, line, { size: 32, weight: 700, fill: i === 2 ? f.sub : f.ink, spacing: -0.5 })));
+  const max = Math.max(...list.map((w) => w.commits));
+  parts.push(`<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="22" fill="${f.mold}"/>`);
+  list.forEach((w, i) => {
+    const sx = bx + pad + (i % cols) * (cw + gap), sy = by + pad + Math.floor(i / cols) * (ch + gap);
+    const fill = f.heat[level(w.commits, max)];
+    const ink = isLight(fill) ? f.mold : f.ink;
+    parts.push(`<rect x="${sx.toFixed(1)}" y="${sy + 4}" width="${cw.toFixed(1)}" height="${ch - 4}" rx="12" fill="#000" opacity="0.35"/>`);
+    parts.push(`<rect x="${sx.toFixed(1)}" y="${sy}" width="${cw.toFixed(1)}" height="${ch - 4}" rx="12" fill="${fill}"/>`);
+    parts.push(c.text(sx + 12, sy + 32, `${w.start.getUTCMonth() + 1}.${w.start.getUTCDate()}`, { size: 20, weight: 700, fill: ink, extra: ` opacity="0.8"` }));
+    parts.push(c.text(sx + 12, sy + 72, fmt(w.commits), { size: 32, weight: 800, fill: ink }));
+    if (w.partial) parts.push(`<rect x="${(sx + 1.5).toFixed(1)}" y="${sy + 1.5}" width="${(cw - 3).toFixed(1)}" height="${ch - 7}" rx="11" fill="none" stroke="${f.mint}" stroke-width="3"/>`);
+  });
+  parts.push(c.text(40, by + bh + 46, `${list.length}주, 한 칸이 한 주의 커밋`, { size: 24, weight: 500, fill: f.sub }));
+  return c.render(parts.join("\n"));
+}
+
+export async function moldMobile(t, profile) {
+  const m = profile.mold;
+  const f = t.field;
+  const x0 = 32, w0 = M - 64;
+  const parts = [];
+  // 틀: 제목 + 일곱 칸(4·3줄)
+  const chipH = 62, chipGap = 10, perRow = 4;
+  const rows = Math.ceil(m.core.parts.length / perRow);
+  const coreH = 150 + rows * (chipH + chipGap);
+  parts.push(`<rect x="${x0}" y="32" width="${w0}" height="${coreH}" rx="22" fill="${f.bg}"/>`);
+  const c = new Canvas({ width: M, height: 10, title: "", desc: "" });
+  parts.push(c.text(x0 + 28, 92, m.core.title, { size: 36, weight: 800, fill: f.ink }));
+  parts.push(c.text(x0 + 28, 134, m.core.note, { size: 24, weight: 700, fill: f.mint }));
+  const chipW = (w0 - 56 - chipGap * (perRow - 1)) / perRow;
+  m.core.parts.forEach((name, i) => {
+    const cx = x0 + 28 + (i % perRow) * (chipW + chipGap), cy = 160 + Math.floor(i / perRow) * (chipH + chipGap);
+    parts.push(`<rect x="${cx.toFixed(1)}" y="${cy}" width="${chipW.toFixed(1)}" height="${chipH}" rx="12" fill="${f.mold}"/>`);
+    parts.push(c.text(cx + chipW / 2, cy + 40, name, { size: name.length > 5 ? 19 : 23, weight: 700, fill: f.ink, anchor: "middle" }));
+  });
+  // 줄기와 2×3 바
+  let y = 32 + coreH;
+  parts.push(`<rect x="${M / 2 - 5}" y="${y}" width="10" height="34" rx="5" fill="${t.heat[2]}" opacity="0.7"/>`);
+  y += 34;
+  const bw = (w0 - 16) / 2, bh = 112;
+  m.services.forEach((name, i) => {
+    const bx = x0 + (i % 2) * (bw + 16), by = y + Math.floor(i / 2) * (bh + 16);
+    parts.push(`<rect x="${bx.toFixed(1)}" y="${by + 6}" width="${bw.toFixed(1)}" height="${bh}" rx="16" fill="${t.heat[4]}" opacity="0.35"/>`);
+    parts.push(`<rect x="${bx.toFixed(1)}" y="${by}" width="${bw.toFixed(1)}" height="${bh}" rx="16" fill="${t.heat[3]}"/>`);
+    parts.push(`<rect x="${(bx + 14).toFixed(1)}" y="${by + 58}" width="${(bw - 28).toFixed(1)}" height="5" rx="2.5" fill="${t.heat[4]}" opacity="0.45"/>`);
+    parts.push(c.text(bx + bw / 2, by + 44, name, { size: 29, weight: 800, fill: "#FFF7F0", anchor: "middle" }));
+    parts.push(c.text(bx + bw / 2, by + 94, m.serviceSub, { size: 18, weight: 700, fill: "#FFE9D8", anchor: "middle" }));
+  });
+  y += 3 * (bh + 16) + 8;
+  // 받침
+  const baseH = 64 + m.base.lines.length * 36;
+  parts.push(`<rect x="${x0}" y="${y}" width="${w0}" height="${baseH}" rx="22" fill="${t.surface2}"/>`);
+  parts.push(c.text(x0 + 28, y + 50, m.base.title, { size: 30, weight: 800, fill: t.ink }));
+  m.base.lines.forEach((line, i) => parts.push(c.text(x0 + 28, y + 92 + i * 34, line, { size: 22, weight: 500, fill: t.sub })));
+  const H = y + baseH + 32;
+  const canvas = new Canvas({ width: M, height: H, title: "한 틀로 찍어내는 서비스", desc: `${m.core.title}(${m.core.parts.join(", ")})에서 ${m.services.join(", ")} 서비스를 찍어내고, ${m.base.title}(${m.base.lines.join(" · ")}) 위에서 운영합니다.` });
+  canvas.used = c.used;
+  return canvas.render([`<rect width="${M}" height="${H}" rx="28" fill="${t.surface}"/>`, ...parts].join("\n"));
+}
+
+export async function metricsMobile(t, profile) {
+  const rows = profile.metrics;
+  const show = (v, r) => (r.unit === "분" ? v.toFixed(1) : String(v)) + r.unit;
+  const rowH = 196, top = 24, H = top * 2 + rows.length * rowH - 16;
+  const c = new Canvas({ width: M, height: H, title: "전후 실측", desc: rows.map((r) => `${r.label}(${r.where}) ${show(r.before, r)} → ${r.afterText || show(r.after, r)}`).join(" / ") });
+  const parts = [`<rect width="${M}" height="${H}" rx="28" fill="${t.surface}"/>`];
+  const x0 = 36, bw = M - 72 - 120;
+  rows.forEach((r, i) => {
+    const y = top + i * rowH;
+    if (i) parts.push(`<rect x="${x0}" y="${y - 8}" width="${M - 72}" height="3" rx="1.5" fill="${t.surface2}"/>`);
+    parts.push(c.text(x0, y + 46, r.label, { size: 32, weight: 800, fill: t.ink }));
+    const delta = r.higherIsBetter ? `+${r.after - r.before}${r.unit}` : `−${Math.round((1 - r.after / r.before) * 100)}%`;
+    parts.push(c.text(M - x0, y + 48, delta, { size: 40, weight: 800, fill: t.accent, anchor: "end" }));
+    parts.push(c.text(x0, y + 82, r.where, { size: 20, weight: 500, fill: t.faint }));
+    const scale = Math.max(r.before, r.after);
+    const w1 = Math.max(8, (r.before / scale) * bw), w2 = Math.max(8, (r.after / scale) * bw);
+    parts.push(`<rect x="${x0}" y="${y + 104}" width="${w1.toFixed(1)}" height="24" rx="7" fill="${t.heat[1]}"/>`);
+    parts.push(c.text(x0 + w1 + 12, y + 124, show(r.before, r), { size: 22, weight: 700, fill: t.sub }));
+    parts.push(`<rect x="${x0}" y="${y + 138}" width="${w2.toFixed(1)}" height="24" rx="7" fill="${t.heat[4]}"/>`);
+    parts.push(c.text(x0 + w2 + 12, y + 158, r.afterText || show(r.after, r), { size: 22, weight: 800, fill: t.ink }));
   });
   return c.render(parts.join("\n"));
 }
