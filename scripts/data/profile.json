@@ -52,7 +52,7 @@
   ],
   "stack": [
     {
-      "group": "화면 · 앱",
+      "group": "화면과 앱",
       "items": [
         ["TypeScript", "siTypescript"],
         ["React", "siReact"],
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "group": "서버 · 데이터",
+      "group": "서버와 데이터",
       "items": [
         ["Node.js", "siNodedotjs"],
         ["NestJS", "siNestjs"],
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "group": "인프라 · 품질",
+      "group": "인프라와 품질",
       "items": [
         ["AWS", null],
         ["Terraform", "siTerraform"],
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "group": "AI · 개인 제품",
+      "group": "AI와 개인 제품",
       "items": [
         ["Claude Code", "siClaude"],
         ["Supabase", "siSupabase"],
@@ -98,13 +98,13 @@
       ]
     }
   ],
-  "roleLine": "풀스택 개발자 · 아이엔지스토리",
+  "roleLine": "풀스택 개발자, 아이엔지스토리",
   "contact": "choco5958@naver.com",
   "mold": {
     "core": {
       "title": "공통 코어",
       "sub": "업종 서비스가 버전을 고정해 가져다 쓰는 앱 코어",
-      "note": "0.1.0 → 0.1.115 · DB 이관 147개",
+      "note": "0.1.0 → 0.1.115, DB 이관 147개",
       "parts": [
         "서버",
         "DB",
@@ -124,24 +124,24 @@
       "음악 연습실",
       "헬스장"
     ],
-    "serviceSub": "웹 · 어드민 · 본사 · 키오스크",
+    "serviceSub": "웹, 어드민, 본사, 키오스크",
     "base": {
       "title": "인프라 표준",
-      "line": "Terraform 공용 모듈 20개 · 새 서비스 찍어내기 스크립트 · 매일 백업 복원 대조 · ARM64",
-      "lines": ["Terraform 공용 모듈 20개 · 서비스 찍어내기 스크립트", "매일 백업 복원 대조 · ARM64"]
+      "line": "Terraform 공용 모듈 20개, 새 서비스 찍어내기 스크립트, 매일 백업 복원 대조, ARM64",
+      "lines": ["Terraform 공용 모듈 20개, 서비스 찍어내기 스크립트", "매일 백업 복원 대조, ARM64"]
     }
   },
   "metrics": [
     {
       "label": "배포 파이프라인",
-      "where": "아이엔지스토리 · 같은 파이프라인 전후",
+      "where": "아이엔지스토리, 같은 파이프라인 전후",
       "before": 16.0,
       "after": 9.4,
       "unit": "분"
     },
     {
       "label": "배포 시간",
-      "where": "아이엔지스토리 · 품질 검사 병렬화",
+      "where": "아이엔지스토리, 품질 검사 병렬화",
       "before": 14.1,
       "after": 8.0,
       "unit": "분",
@@ -149,21 +149,21 @@
     },
     {
       "label": "ESLint 오류",
-      "where": "아이엔지스토리 · 저장소 전체",
+      "where": "아이엔지스토리, 저장소 전체",
       "before": 129,
       "after": 0,
       "unit": "건"
     },
     {
       "label": "API 응답",
-      "where": "파이어볼트 · Redis 캐시",
+      "where": "파이어볼트, Redis 캐시",
       "before": 1.1,
       "after": 0.38,
       "unit": "s"
     },
     {
       "label": "Lighthouse",
-      "where": "파이어볼트 · CSR SEO 개선",
+      "where": "파이어볼트, CSR SEO 개선",
       "before": 68,
       "after": 92,
       "unit": "점",

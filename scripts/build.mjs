@@ -44,7 +44,7 @@ const numbers = {
   activeDays: company.activeDays,
   repos: company.repos,
   period: `${company.firstDay.replaceAll("-", ".")} ~ ${md(company.lastDay)}`,
-  peak: `${md(company.peak.day)} · ${company.peak.commits}건`,
+  peak: `${md(company.peak.day)}, ${company.peak.commits}건`,
   cards: fmt(Object.values(company.cards).reduce((a, b) => a + b, 0)),
   feat: company.cards.FEAT,
   bug: company.cards.BUG,

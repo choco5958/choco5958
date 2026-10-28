@@ -135,7 +135,7 @@ function tileContent(c, tile, box, S, ink, draw) {
   if (tile.share) {
     y += 16;
     if (draw) {
-      parts.push(c.rich(x + S.pad, y + S.label, [[`커밋 ${tile.share.commits}건`, { weight: 800, fill: ink.ink }], [`  ·  ${tile.share.pct}%`, { weight: 700, fill: ink.sub }]], { size: S.label }));
+      parts.push(c.rich(x + S.pad, y + S.label, [[`커밋 ${tile.share.commits}건`, { weight: 800, fill: ink.ink }], [` (${tile.share.pct}%)`, { weight: 700, fill: ink.sub }]], { size: S.label }));
       const ty = y + S.label + 14;
       parts.push(`<rect x="${x + S.pad}" y="${ty}" width="${inner}" height="8" rx="4" fill="${ink.chip}"/>`);
       parts.push(`<rect x="${x + S.pad}" y="${ty}" width="${(inner * tile.share.pct) / 100}" height="8" rx="4" fill="${ink.bar}"/>`);

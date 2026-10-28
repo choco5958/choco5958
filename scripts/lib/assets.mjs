@@ -111,7 +111,7 @@ export async function timeline(t, profile, company) {
     const fill = e.current ? t.accent : e.labelBelow ? t.heat[2] : e.row === 0 ? t.heat[3] : t.heat[1];
     parts.push(`<rect x="${x1.toFixed(1)}" y="${y}" width="${Math.max(10, x2 - x1 - 4).toFixed(1)}" height="${h}" rx="${h / 2}" fill="${fill}"/>`);
     const sameYear = e.to !== "now" && e.to.slice(0, 4) === e.from.slice(0, 4);
-    const period = `${e.from.replace("-", ".")} – ${e.to === "now" ? "지금" : sameYear ? e.to.slice(5) : e.to.replace("-", ".")}`;
+    const period = `${e.from.replace("-", ".")} ~ ${e.to === "now" ? "지금" : sameYear ? e.to.slice(5) : e.to.replace("-", ".")}`;
     if (e.row === 0 && e.labelBelow) {
       parts.push(c.rich(x2 - 4, y + h + 24, [[e.label, { weight: 800, fill: t.ink }], [`  ${period}`, { weight: 500, fill: t.faint }]], { size: 15, anchor: "end" }));
     } else if (e.row === 0) {
@@ -194,7 +194,7 @@ export async function moldMobile(t, profile) {
   parts.push(c.text(x0 + 28, y + 50, m.base.title, { size: 30, weight: 800, fill: t.ink }));
   m.base.lines.forEach((line, i) => parts.push(c.text(x0 + 28, y + 92 + i * 34, line, { size: 22, weight: 500, fill: t.sub })));
   const H = y + baseH + 32;
-  const canvas = new Canvas({ width: M, height: H, title: "한 틀로 찍어내는 서비스", desc: `${m.core.title}(${m.core.parts.join(", ")})에서 ${m.services.join(", ")} 서비스를 찍어내고, ${m.base.title}(${m.base.lines.join(" · ")}) 위에서 운영합니다.` });
+  const canvas = new Canvas({ width: M, height: H, title: "한 틀로 찍어내는 서비스", desc: `${m.core.title}(${m.core.parts.join(", ")})에서 ${m.services.join(", ")} 서비스를 찍어내고, ${m.base.title}(${m.base.lines.join(", ")}) 위에서 운영합니다.` });
   canvas.used = c.used;
   return canvas.render([`<rect width="${M}" height="${H}" rx="28" fill="${t.surface}"/>`, ...parts].join("\n"));
 }
@@ -227,7 +227,7 @@ export async function metricsMobile(t, profile) {
 export async function timelineMobile(t, profile) {
   const jobs = profile.career.filter((e) => e.row === 0).reverse();
   const study = profile.career.filter((e) => e.row === 1).reverse();
-  const period = (e) => `${e.from.replace("-", ".")} – ${e.to === "now" ? "지금" : e.to.replace("-", ".")}`;
+  const period = (e) => `${e.from.replace("-", ".")} ~ ${e.to === "now" ? "지금" : e.to.replace("-", ".")}`;
   const rowH = 96, studyH = 72, top = 48;
   const H = top + jobs.length * rowH + 40 + study.length * studyH + 36;
   const c = new Canvas({ width: M, height: H, title: "경력 연표", desc: profile.career.map((e) => `${e.label} ${period(e)}`).join(", ") });

@@ -145,10 +145,10 @@ const Desktop = () => {
       <Tile x={X(3)} y={Y(7)} w={Wd(4)} h={Hd(2)}>
         <Text x={X(3) + 24} y={Y(7) + 50} size={22} weight={800}>공통 코어</Text>
         <Text x={X(3) + 24} y={Y(7) + 112} size={36} weight={900}>0.1.0 → 0.1.115</Text>
-        <Text x={X(3) + 24} y={Y(7) + 148} size={17} fill={T.muted}>4주 · DB 이관 147개 · 7개 패키지</Text>
+        <Text x={X(3) + 24} y={Y(7) + 148} size={17} fill={T.muted}>4주, DB 이관 147개, 7개 패키지</Text>
       </Tile>
       <Tile x={X(7)} y={Y(7)} w={Wd(5)} h={Hd(2)} fill={T.accent}>
-        <Text x={X(7) + 30} y={Y(7) + 64} size={32} weight={900} fill={T.accentInk}>채용 · 협업 문의</Text>
+        <Text x={X(7) + 30} y={Y(7) + 64} size={32} weight={900} fill={T.accentInk}>채용과 협업 문의</Text>
         <Text x={X(7) + 30} y={Y(7) + 106} size={25} fill={T.accentInk}>{profile.contact}</Text>
         <Text x={X(7) + Wd(5) - 30} y={Y(7) + 152} size={40} weight={900} fill={T.accentInk} anchor="end">→</Text>
       </Tile>
@@ -206,10 +206,10 @@ const Mobile = () => {
       <Tile x={m + half + g} y={yCard} w={half} h={200}>
         <Text x={m + half + g + 24} y={yCard + 52} size={24} weight={800}>공통 코어</Text>
         <Text x={m + half + g + 24} y={yCard + 112} size={32} weight={900}>0.1.115</Text>
-        <Text x={m + half + g + 24} y={yCard + 152} size={20} fill={T.muted}>4주 · 7개 패키지</Text>
+        <Text x={m + half + g + 24} y={yCard + 152} size={20} fill={T.muted}>4주, 7개 패키지</Text>
       </Tile>
       <Tile x={m} y={yCta} w={w} h={170} fill={T.accent}>
-        <Text x={m + 30} y={yCta + 70} size={36} weight={900} fill={T.accentInk}>채용 · 협업 문의</Text>
+        <Text x={m + 30} y={yCta + 70} size={36} weight={900} fill={T.accentInk}>채용과 협업 문의</Text>
         <Text x={m + 30} y={yCta + 122} size={28} fill={T.accentInk}>{profile.contact}</Text>
       </Tile>
     </>
