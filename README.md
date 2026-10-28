@@ -119,7 +119,8 @@
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-education-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-education-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-education-dark.svg">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-education-light.svg" width="100%" alt="한국방송통신대학교. 컴퓨터과학과 편입 졸업, 2024.03 ~ 2026.02 / 배재대학교. 러시아학과 졸업, 2014.03 ~ 2020.02 / 코리아IT아카데미. Java 풀스택 과정 수료, 2020.12 ~ 2021.05 / 카자흐스탄 교환학생. 2018.08 ~ 2019.05 / 카자흐스탄 대통령 방한 프레스센터. 운영 지원, 2019.04 / 원주 다이내믹 댄싱카니발. 러시아어 통역 봉사, 2019.09">
+  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-education-light.svg" width="100%" alt="한국방송통신대학교. 컴퓨터과학과 편입 졸업, 2024.03 ~ 2026.02 / 배재대학교. 러시아학과 졸업, 2014.03 ~ 2020.02 / 코리아IT아카데미. Java 풀스택 과정 수료, 2020.12 ~ 2021.05 / 카자흐스탄 교환학생. 2018.08 ~ 2019.05 /  대한민국 대통령 카자흐스탄 공식 방문 계기 프레스센터 운영 지원, 
+2019.04 / 원주 다이내믹 댄싱카니발. 러시아어 통역 봉사, 2019.09">
 </picture>
 
 <a href="mailto:choco5958@naver.com">
