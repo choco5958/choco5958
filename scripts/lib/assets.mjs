@@ -14,12 +14,13 @@ const textWidth = (label, size) =>
 export async function mold(t, profile) {
   const m = profile.mold;
   const f = t.field;
-  const H = 618;
+  const legacy = m.legacy || [];
+  const H = legacy.length ? 760 : 618;
   const c = new Canvas({
     width: W,
     height: H,
     title: "한 틀로 찍어내는 서비스",
-    desc: `${m.core.title}(${m.core.parts.join(", ")})에서 ${m.services.join(", ")} 서비스를 찍어내고, ${m.base.title}(${m.base.line}) 위에서 운영합니다.`,
+    desc: `${m.core.title}(${m.core.parts.join(", ")})에서 ${m.services.join(", ")} 서비스를 찍어내고${legacy.length ? `, ${legacy.join(", ")}는 코어로 옮기는 중이며` : ""}, ${m.base.title}(${m.base.line}) 위에서 운영합니다.`,
   });
   const parts = [`<rect width="${W}" height="${H}" rx="24" fill="${t.surface}"/>`];
 
@@ -38,7 +39,7 @@ export async function mold(t, profile) {
   });
 
   // 찍혀 나온 바: 틀에서 흘러내린 줄기로 잇는다
-  const sy = 296, sh = 150, sgap = 16, sn = m.services.length;
+  const sy = 296, sh = legacy.length ? 124 : 150, sgap = 16, sn = m.services.length;
   const sw = (mw - sgap * (sn - 1)) / sn;
   m.services.forEach((name, i) => {
     const x = mx + i * (sw + sgap);
@@ -47,15 +48,31 @@ export async function mold(t, profile) {
     parts.push(`<rect x="${x.toFixed(1)}" y="${sy + 6}" width="${sw.toFixed(1)}" height="${sh}" rx="16" fill="${t.heat[4]}" opacity="0.35"/>`);
     parts.push(`<rect x="${x.toFixed(1)}" y="${sy}" width="${sw.toFixed(1)}" height="${sh}" rx="16" fill="${t.heat[3]}"/>`);
     // 바의 홈 두 줄
-    for (const k of [1, 2]) parts.push(`<rect x="${(x + 12).toFixed(1)}" y="${sy + 46 * k + 6}" width="${(sw - 24).toFixed(1)}" height="5" rx="2.5" fill="${t.heat[4]}" opacity="0.45"/>`);
+    for (const k of legacy.length ? [1] : [1, 2]) parts.push(`<rect x="${(x + 12).toFixed(1)}" y="${sy + (legacy.length ? 60 : 46 * k + 6)}" width="${(sw - 24).toFixed(1)}" height="5" rx="2.5" fill="${t.heat[4]}" opacity="0.45"/>`);
     // 바 색이 밝으면(다크 테마) 짙은 글자, 어두우면(라이트 테마) 흰 글자
     const barInk = isLight(t.heat[3]) ? "#161C1A" : "#FFFFFF";
     parts.push(c.text(cx, sy + 40, name, { size: 21, weight: 800, fill: barInk, anchor: "middle" }));
     parts.push(c.text(cx, sy + sh - 22, m.serviceSub, { size: 15, weight: 700, fill: barInk, anchor: "middle" }));
   });
 
+  // 아직 코어로 옮기는 중인 서비스: 틀과 잇지 않고 옅은 바로 아래 줄에 둔다
+  let ly = sy + sh;
+  if (legacy.length) {
+    ly += 52;
+    parts.push(c.text(mx, ly - 4, m.legacyNote, { size: 17, weight: 700, fill: t.sub }));
+    const lh = 84, ln = legacy.length, lw = (mw - sgap * (ln - 1)) / ln;
+    ly += 16;
+    legacy.forEach((name, i) => {
+      const x = mx + i * (lw + sgap);
+      parts.push(`<rect x="${x.toFixed(1)}" y="${ly}" width="${lw.toFixed(1)}" height="${lh}" rx="16" fill="${t.surface2}"/>`);
+      parts.push(c.text(x + lw / 2, ly + 36, name, { size: 20, weight: 800, fill: t.ink, anchor: "middle" }));
+      parts.push(c.text(x + lw / 2, ly + 64, "코어 전환 준비", { size: 14, weight: 700, fill: t.faint, anchor: "middle" }));
+    });
+    ly += lh;
+  }
+
   // 받침: 인프라 표준
-  const by = sy + sh + 32, bh = H - by - 40;
+  const by = ly + 32, bh = H - by - 40;
   parts.push(`<rect x="${mx}" y="${by}" width="${mw}" height="${bh}" rx="20" fill="${t.surface2}"/>`);
   parts.push(c.text(mx + 32, by + bh / 2 + 9, m.base.title, { size: 24, weight: 800, fill: t.ink }));
   parts.push(c.text(mx + 32 + textWidth(m.base.title, 24) + 22, by + bh / 2 + 7, m.base.line, { size: 17, weight: 500, fill: t.sub }));
@@ -67,7 +84,7 @@ export async function metrics(t, profile) {
   const rows = profile.metrics;
   const rowH = 92, top = 36, H = top * 2 + rows.length * rowH - 12;
   const show = (v, r) => (r.unit === "분" ? v.toFixed(1) : String(v)) + r.unit;
-  const c = new Canvas({ width: W, height: H, title: "전후 실측", desc: rows.map((r) => `${r.label}(${r.where}) ${show(r.before, r)} → ${r.afterText || show(r.after, r)}`).join(" / ") });
+  const c = new Canvas({ width: W, height: H, title: "전후 실측", desc: rows.map((r) => `${r.label}(${r.where}) ${(r.beforeText || show(r.before, r))} → ${r.afterText || show(r.after, r)}`).join(" / ") });
   const parts = [`<rect width="${W}" height="${H}" rx="24" fill="${t.surface}"/>`];
   const lx = 40, bx = 360, bw = 600;
   rows.forEach((r, i) => {
@@ -78,7 +95,7 @@ export async function metrics(t, profile) {
     const scale = Math.max(r.before, r.after);
     const w1 = Math.max(6, (r.before / scale) * bw), w2 = Math.max(6, (r.after / scale) * bw);
     parts.push(`<rect x="${bx}" y="${y + 10}" width="${w1.toFixed(1)}" height="20" rx="6" fill="${t.heat[1]}"/>`);
-    parts.push(c.text(bx + w1 + 10, y + 27, show(r.before, r), { size: 16, weight: 700, fill: t.sub }));
+    parts.push(c.text(bx + w1 + 10, y + 27, (r.beforeText || show(r.before, r)), { size: 16, weight: 700, fill: t.sub }));
     parts.push(`<rect x="${bx}" y="${y + 38}" width="${w2.toFixed(1)}" height="20" rx="6" fill="${t.heat[4]}"/>`);
     parts.push(c.text(bx + w2 + 10, y + 55, r.afterText || show(r.after, r), { size: 16, weight: 800, fill: t.ink }));
     const delta = r.higherIsBetter ? `+${r.after - r.before}${r.unit}` : `−${Math.round((1 - r.after / r.before) * 100)}%`;
@@ -187,14 +204,27 @@ export async function moldMobile(t, profile) {
     parts.push(c.text(bx + bw / 2, by + 44, name, { size: 29, weight: 800, fill: barInk, anchor: "middle" }));
     parts.push(c.text(bx + bw / 2, by + 94, m.serviceSub, { size: 18, weight: 700, fill: barInk, anchor: "middle" }));
   });
-  y += 3 * (bh + 16) + 8;
+  y += Math.ceil(m.services.length / 2) * (bh + 16) + 8;
+  const legacy = m.legacy || [];
+  if (legacy.length) {
+    y += 28;
+    parts.push(c.text(x0 + 4, y, m.legacyNote, { size: 23, weight: 700, fill: t.sub }));
+    y += 22;
+    const lh = 84;
+    legacy.forEach((name, i) => {
+      const bx = x0 + (i % 2) * (bw + 16), by = y + Math.floor(i / 2) * (lh + 14);
+      parts.push(`<rect x="${bx.toFixed(1)}" y="${by}" width="${bw.toFixed(1)}" height="${lh}" rx="16" fill="${t.surface2}"/>`);
+      parts.push(c.text(bx + bw / 2, by + 52, name, { size: 27, weight: 800, fill: t.ink, anchor: "middle" }));
+    });
+    y += Math.ceil(legacy.length / 2) * (lh + 14) + 10;
+  }
   // 받침
   const baseH = 64 + m.base.lines.length * 36;
   parts.push(`<rect x="${x0}" y="${y}" width="${w0}" height="${baseH}" rx="22" fill="${t.surface2}"/>`);
   parts.push(c.text(x0 + 28, y + 50, m.base.title, { size: 30, weight: 800, fill: t.ink }));
   m.base.lines.forEach((line, i) => parts.push(c.text(x0 + 28, y + 92 + i * 34, line, { size: 22, weight: 500, fill: t.sub })));
   const H = y + baseH + 32;
-  const canvas = new Canvas({ width: M, height: H, title: "한 틀로 찍어내는 서비스", desc: `${m.core.title}(${m.core.parts.join(", ")})에서 ${m.services.join(", ")} 서비스를 찍어내고, ${m.base.title}(${m.base.lines.join(", ")}) 위에서 운영합니다.` });
+  const canvas = new Canvas({ width: M, height: H, title: "한 틀로 찍어내는 서비스", desc: `${m.core.title}(${m.core.parts.join(", ")})에서 ${m.services.join(", ")} 서비스를 찍어내고${legacy.length ? `, ${legacy.join(", ")}는 코어로 옮기는 중이며` : ""}, ${m.base.title}(${m.base.lines.join(", ")}) 위에서 운영합니다.` });
   canvas.used = c.used;
   return canvas.render([`<rect width="${M}" height="${H}" rx="28" fill="${t.surface}"/>`, ...parts].join("\n"));
 }
@@ -203,7 +233,7 @@ export async function metricsMobile(t, profile) {
   const rows = profile.metrics;
   const show = (v, r) => (r.unit === "분" ? v.toFixed(1) : String(v)) + r.unit;
   const rowH = 196, top = 24, H = top * 2 + rows.length * rowH - 16;
-  const c = new Canvas({ width: M, height: H, title: "전후 실측", desc: rows.map((r) => `${r.label}(${r.where}) ${show(r.before, r)} → ${r.afterText || show(r.after, r)}`).join(" / ") });
+  const c = new Canvas({ width: M, height: H, title: "전후 실측", desc: rows.map((r) => `${r.label}(${r.where}) ${(r.beforeText || show(r.before, r))} → ${r.afterText || show(r.after, r)}`).join(" / ") });
   const parts = [`<rect width="${M}" height="${H}" rx="28" fill="${t.surface}"/>`];
   const x0 = 36, bw = M - 72 - 120;
   rows.forEach((r, i) => {
@@ -216,7 +246,7 @@ export async function metricsMobile(t, profile) {
     const scale = Math.max(r.before, r.after);
     const w1 = Math.max(8, (r.before / scale) * bw), w2 = Math.max(8, (r.after / scale) * bw);
     parts.push(`<rect x="${x0}" y="${y + 104}" width="${w1.toFixed(1)}" height="24" rx="7" fill="${t.heat[1]}"/>`);
-    parts.push(c.text(x0 + w1 + 12, y + 124, show(r.before, r), { size: 22, weight: 700, fill: t.sub }));
+    parts.push(c.text(x0 + w1 + 12, y + 124, (r.beforeText || show(r.before, r)), { size: 22, weight: 700, fill: t.sub }));
     parts.push(`<rect x="${x0}" y="${y + 138}" width="${w2.toFixed(1)}" height="24" rx="7" fill="${t.heat[4]}"/>`);
     parts.push(c.text(x0 + w2 + 12, y + 158, r.afterText || show(r.after, r), { size: 22, weight: 800, fill: t.ink }));
   });

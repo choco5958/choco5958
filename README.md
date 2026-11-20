@@ -5,7 +5,7 @@
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-mobile-dark.gif">
   <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-mobile-light.gif">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-dark.gif">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-light.gif" width="100%" alt="한대현, 풀스택 개발자, 아이엔지스토리. 공통 코어 하나로 여러 업종 서비스를 찍어내고, 출시와 운영까지 맡습니다. 12주 동안 하루하루 쌓인 커밋 3D 스카이라인(가장 많은 날 10월 8일 255건), 회사 커밋 3,470건, 커밋한 날 54일, 업종별 서비스 6종, 배포 시간 16.0분에서 9.4분(41% 단축), 작업 카드 734장, 공통 코어 0.1.0에서 0.1.115. 채용과 협업 문의 choco5958@naver.com">
+  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/hero-intro-light.gif" width="100%" alt="한대현, 풀스택 개발자, 아이엔지스토리. 공통 코어 하나로 여러 업종 서비스를 찍어내고, 출시와 운영까지 맡습니다. 16주 동안 하루하루 쌓인 커밋 3D 스카이라인(가장 많은 날 11월 18일 353건), 회사 커밋 6,517건, 커밋한 날 78일, 업종별 서비스 11종, 배포 시간 16.0분에서 9.4분(41% 단축), 작업 카드 1,246장, 공통 코어 0.1.0에서 0.1.221. 채용과 협업 문의 choco5958@naver.com">
 </picture>
 
 <p align="center"><b>채⁠용⁠과 협⁠업 문⁠의</b> <a href="mailto:choco5958@naver.com">choco5958@naver.com</a></p>
@@ -27,7 +27,7 @@
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-summary-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-summary-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-summary-dark.svg">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-summary-light.svg" width="100%" alt="지금. 매장용 SaaS의 공통 코어와 그 위의 업종별 서비스 6종을 만들고 운영합니다. / 방식. 통과 조건을 먼저 정합니다. 구현은 AI 에이전트와 나눠 하고, 배포 여부는 제가 정합니다. / 이전. React, Vue, PHP 서비스를 개발했습니다. API 응답 1.1s → 0.38s, Lighthouse 68 → 92.">
+  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-summary-light.svg" width="100%" alt="지금. 매장용 SaaS의 공통 코어와 그 위의 업종별 서비스 11종을 만들고 운영합니다. / 방식. 통과 조건을 먼저 정합니다. 구현은 AI 에이전트와 나눠 하고, 배포 여부는 제가 정합니다. / 이전. React, Vue, PHP 서비스를 개발했습니다. API 응답 1.1s → 0.38s, Lighthouse 68 → 92.">
 </picture>
 
 ## 지금 하는 일
@@ -36,17 +36,17 @@
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-now-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-now-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-now-dark.svg">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-now-light.svg" width="100%" alt="아이엔지스토리. 풀스택 개발, 2026.08 ~ 지금. 스터디카페, 무인 창고, 헬스장 같은 매장을 운영하는 회사입니다. 업종마다 서비스를 새로 만들지 않고, 회원, 예약, 결제, 출입, 키오스크를 담은 공통 코어 하나에 업종 서비스를 얹는 구조를 만들고 있습니다. / 3,470건. 사내 저장소 8곳 커밋 / 공통 코어와 디자인 시스템. 서버, DB, API 클라이언트, 화면 4종을 7개 패키지로 나눴습니다.. 4주 동안 0.1.0 → 0.1.115까지 배포했습니다. DB 이관은 147개입니다.. 업체끼리 데이터가 섞이지 않게 DB에서 행 단위로 막았습니다.. 인증번호와 발송 기록을 암호화하고, 기존 데이터와 하나하나 대조했습니다.. 디자인 시스템 6.0을 만들고, 화면이 바뀌면 배포를 막는 검사를 두었습니다. / 업종별 서비스 6종. 무인 창고, 웰니스, 보드게임 카페, 복합문화공간, 음악 연습실, 헬스장.. 서비스마다 고객 웹, 지점 관리자, 본사 콘솔, 키오스크를 한 묶음으로 만들었습니다.. 고객 앱을 App Store와 Google Play에 냈습니다. 심사 반려는 고쳐서 다시 냈습니다.. 만석 대기 알림, 환불할 때 출입 권한 회수, 1/N 정산처럼 매장 요청을 기능으로 옮겼습니다. / 인프라와 배포 표준. Terraform 공용 모듈 20개를 만들었습니다. 명령 한 줄로 새 서비스의 인프라가 생깁니다.. 배포 시간을 16.0분 → 9.4분, 14.1분 → 8분대로 줄였습니다.. 매일 백업을 새 DB에 풀어 운영 DB와 행 수를 대조합니다.. 서버를 ARM64로 옮겨 비용을 줄였고, 저장소와 CI를 AWS로 옮겼습니다. / 상담 플랫폼 기여. 외부 상담 도구를 대신할 자체 상담 플랫폼 개발에 참여했습니다.. 기존 도구의 저장 답변을 옮겨 오는 기능과 안 읽음 배지를 만들었습니다.. 네이버 채널 연동을 기능 스위치를 끈 채 단계별로 들였습니다.">
+  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-now-light.svg" width="100%" alt="아이엔지스토리. 풀스택 개발, 2026.08 ~ 지금. 스터디카페, 무인 창고, 헬스장 같은 매장을 운영하는 회사입니다. 업종마다 서비스를 새로 만들지 않고, 회원, 예약, 결제, 출입, 키오스크를 담은 공통 코어 하나에 업종 서비스를 얹는 구조를 만들고 있습니다. / 6,517건. 사내 저장소 10곳 커밋 / 공통 코어와 디자인 시스템. 서버, DB, API 클라이언트, 화면을 8개 패키지로 나눴습니다.. 8주 동안 0.1.0 → 0.1.221까지 배포했습니다. DB 이관은 332개입니다.. 업체끼리 데이터가 섞이지 않게 DB에서 행 단위로 막았습니다.. 인증번호와 발송 기록을 암호화하고, 기존 데이터와 하나하나 대조했습니다.. 디자인 시스템을 만들어 7.5까지 올렸고, 화면이 바뀌면 배포를 막는 검사를 두었습니다. / 업종별 서비스 11종. 코어 위 6종: 무인 연습실, 수영장, 무인 태닝샵, 셀프 펫워시, 사우나와 헬스, 공유 오피스.. 코어로 옮기는 5종: 무인 창고, 복합문화공간, 헬스장, 필라테스, 보드게임 카페.. 서비스마다 고객 웹, 지점 관리자, 본사 콘솔, 키오스크를 한 묶음으로 만들었습니다.. 고객 앱을 App Store와 Google Play에 냈습니다. 심사 반려는 고쳐서 다시 냈습니다.. 만석 대기 알림, 환불할 때 출입 권한 회수, 1/N 정산처럼 매장 요청을 기능으로 옮겼습니다.. 키오스크를 웹, Android, Windows, 토스 결제 단말용으로 만들었습니다. / 인프라와 배포 표준. Terraform 공용 모듈 20개를 만들었습니다. 명령 한 줄로 새 서비스의 인프라가 생깁니다.. 배포 시간을 16.0분 → 9.4분, 14.1분 → 8분대로 줄였습니다.. 코어 전체 시험을 레인마다 DB를 따로 띄워 병렬로 돌려 90분 → 18.8분으로 줄였습니다.. 매일 백업을 새 DB에 풀어 운영 DB와 행 수를 대조합니다.. 서버를 ARM64로 옮겨 비용을 줄였고, 저장소와 CI를 AWS로 옮겼습니다. / 상담 플랫폼 기여. 외부 상담 도구를 대신할 자체 상담 플랫폼 개발에 참여했습니다.. 기존 도구의 저장 답변을 옮겨 오는 기능과 안 읽음 배지를 만들었습니다.. 네이버 채널 연동을 기능 스위치를 끈 채 단계별로 들였습니다. / 사내 운영 홈 (1인 개발). 서비스마다 따로 있던 본사 화면 11개를 직원용 화면 하나로 모았습니다.. 회사 Google 계정으로 로그인하고, 서비스 API를 부를 때 사람마다 서명한 행위자 증명을 붙입니다.. 11개 서비스의 지점 대장과 세팅 진행판을 5분마다 모으고, 감사 기록을 1년 보관합니다. / 기존 서비스의 코어 전환. 코어 이전에 만든 5개 서비스를 옮기는 이관 도구를 만들었습니다.. 이미 설치된 기기와 앱은 다시 설치하지 않고 호환 계층으로 계속 돌게 했습니다.. 첫 대상인 필라테스는 이관 리허설에서 옛 서비스와 결과 차이 0건을 확인했습니다.">
 </picture>
 
 <picture>
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-dark.svg">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-light.svg" width="100%" alt="한 틀로 찍어내는 구조: 위는 공통 코어(서버, DB, API 클라이언트, 본사 콘솔, 지점 어드민, 고객 웹, 키오스크 웹), 가운데는 거기서 찍어낸 업종 서비스 6종(무인 창고, 웰니스, 보드게임 카페, 복합문화공간, 음악 연습실, 헬스장), 아래는 받침이 되는 인프라 표준(Terraform 공용 모듈 20개, 새 서비스 찍어내기 스크립트, 매일 백업 복원 대조, ARM64).">
+  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/mold-light.svg" width="100%" alt="한 틀로 찍어내는 구조: 위는 공통 코어(서버, DB, API 클라이언트, 본사 콘솔, 지점 어드민, 고객 웹, 키오스크 웹), 가운데는 거기서 찍어낸 업종 서비스 6종(무인 연습실, 수영장, 무인 태닝샵, 셀프 펫워시, 사우나와 헬스, 공유 오피스)과 코어로 옮기는 중인 5종(무인 창고, 복합문화공간, 헬스장, 필라테스, 보드게임 카페), 아래는 받침이 되는 인프라 표준(Terraform 공용 모듈 20개, 새 서비스 찍어내기 스크립트, 매일 백업 복원 대조, ARM64).">
 </picture>
 
-<sub>회⁠사 저⁠장⁠소 8⁠곳⁠에⁠서 본⁠인 이⁠메⁠일⁠로 남⁠긴 커⁠밋⁠만 셌⁠습⁠니⁠다⁠. 병⁠합 커⁠밋⁠과 중⁠복⁠은 뺐⁠습⁠니⁠다⁠(2026.08.06 ~ 10.23, 가⁠장 많⁠은 날 10.08, 255⁠건⁠). 상⁠당⁠수⁠는 AI 에⁠이⁠전⁠트⁠와 작⁠업 단⁠위⁠로 나⁠눠 남⁠긴 커⁠밋⁠이⁠라⁠, 직⁠접 친 코⁠드⁠의 양⁠과⁠는 다⁠릅⁠니⁠다⁠. 커⁠밋 제⁠목⁠이 infra, ci, ops 같⁠은 범⁠위⁠면 인⁠프⁠라⁠로 셌⁠습⁠니⁠다⁠.</sub>
+<sub>회⁠사 저⁠장⁠소 10⁠곳⁠에⁠서 본⁠인 이⁠메⁠일⁠로 남⁠긴 커⁠밋⁠만 셌⁠습⁠니⁠다⁠. 병⁠합 커⁠밋⁠과 중⁠복⁠은 뺐⁠습⁠니⁠다⁠(2026.08.06 ~ 11.20, 가⁠장 많⁠은 날 11.18, 353⁠건⁠). 상⁠당⁠수⁠는 AI 에⁠이⁠전⁠트⁠와 작⁠업 단⁠위⁠로 나⁠눠 남⁠긴 커⁠밋⁠이⁠라⁠, 직⁠접 친 코⁠드⁠의 양⁠과⁠는 다⁠릅⁠니⁠다⁠. 커⁠밋 제⁠목⁠이 infra, ci, ops 같⁠은 범⁠위⁠면 인⁠프⁠라⁠로 셌⁠습⁠니⁠다⁠.</sub>
 
 ## 전후 실측
 
@@ -54,7 +54,7 @@
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-dark.svg">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-light.svg" width="100%" alt="전후 실측: 배포 파이프라인 16.0분에서 9.4분(−41%), 배포 시간 14.1분에서 8분대(−43%), ESLint 오류 129건에서 0건(이상 아이엔지스토리), API 응답 1.1s에서 0.38s(−65%), Lighthouse 68점에서 92점(+24점, 이상 파이어볼트).">
+  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/metrics-light.svg" width="100%" alt="전후 실측: 배포 파이프라인 16.0분에서 9.4분(−41%), 배포 시간 14.1분에서 8분대(−43%), 코어 전체 시험 90분에서 18.8분(−79%), ESLint 오류 129건에서 0건(이상 아이엔지스토리), API 응답 1.1s에서 0.38s(−65%), Lighthouse 68점에서 92점(+24점, 이상 파이어볼트).">
 </picture>
 
 ## 일하는 방식
@@ -63,7 +63,7 @@
   <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-how-mobile-dark.svg">
   <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-how-mobile-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-how-dark.svg">
-  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-how-light.svg" width="100%" alt="작업 카드 → 계약 → 구현 → 검증 → 배포 → 운영 확인 / 734장. 작업 카드: 기능 273, 버그 90, 운영 180, 결정 191 / &quot;코드 완료&quot;와 &quot;매장에서 동작&quot;을 나눠 적습니다. 실매장 적용이 남았으면 완료로 쓰지 않습니다. / 새 기능은 스위치를 끈 채 배포합니다. 운영 반영은 한 번에 하나씩 합니다. 되돌리기 어려운 변경은 결정 기록을 남기고 사람이 승인합니다. / 버전이 어긋나면 배포가 멈춥니다. DB와 코드, 패키지 버전이 맞지 않으면 자동으로 거절합니다. / AI 작업 규칙은 한 곳에서 고칩니다. 바뀐 규칙은 모든 저장소에 한 번에 반영합니다.">
+  <img src="https://raw.githubusercontent.com/choco5958/choco5958/main/assets/sections/sec-how-light.svg" width="100%" alt="작업 카드 → 계약 → 구현 → 검증 → 배포 → 운영 확인 / 1,246장. 작업 카드: 기능 629, 버그 131, 운영 213, 결정 273 / &quot;코드 완료&quot;와 &quot;매장에서 동작&quot;을 나눠 적습니다. 실매장 적용이 남았으면 완료로 쓰지 않습니다. / 새 기능은 스위치를 끈 채 배포합니다. 운영 반영은 한 번에 하나씩 합니다. 되돌리기 어려운 변경은 결정 기록을 남기고 사람이 승인합니다. / 버전이 어긋나면 배포가 멈춥니다. DB와 코드, 패키지 버전이 맞지 않으면 자동으로 거절합니다. / AI 작업 규칙은 한 곳에서 고칩니다. 바뀐 규칙은 모든 저장소에 한 번에 반영합니다.">
 </picture>
 
 ## 경력

@@ -13,6 +13,8 @@ const TOP = "#DFF1EA";
 const SANS = "'LP Sans', sans-serif";
 const out = { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.bezier(0.16, 1, 0.3, 1) };
 const cards = Object.values(company.cards).reduce((a, b) => a + b, 0);
+const allServices = [...profile.mold.services, ...(profile.mold.legacy || [])];
+const nWeeks = weeks(company).length;
 const mix = (hex, to, k) => {
   const a = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
   const b = [1, 3, 5].map((i) => parseInt(to.slice(i, i + 2), 16));
@@ -82,7 +84,7 @@ const Skyline = ({ cx, bottom, s, zmax, label = 17 }) => {
           <rect x={peak.at[0] - 1.5} y={peak.at[1] - 46} width={3} height={40} rx={1.5} fill={T.accent} />
           <text x={peak.at[0]} y={peak.at[1] - 56} fontFamily={SANS} fontSize={label} textAnchor="middle">
             <tspan fontWeight={800} fill={T.accent}>{`${company.peak.commits}건`}</tspan>
-            <tspan fontWeight={700} fill={T.muted}>{"  10월 8일"}</tspan>
+            <tspan fontWeight={700} fill={T.muted}>{`  ${Number(company.peak.day.slice(5, 7))}월 ${Number(company.peak.day.slice(8))}일`}</tspan>
           </text>
         </g>
       )}
@@ -110,7 +112,7 @@ const Desktop = () => {
         <Text x={X(0) + 34} y={Y(0) + 330} size={22} weight={500} fill={T.muted}>{profile.tagline[1]}</Text>
       </Tile>
       <Tile x={X(6)} y={Y(0)} w={Wd(6)} h={Hd(5)} fill={T.surface2}>
-        <Text x={X(6) + 26} y={Y(0) + 46} size={22} weight={800}>12주 동안 하루하루 쌓인 커밋</Text>
+        <Text x={X(6) + 26} y={Y(0) + 46} size={22} weight={800}>{`${nWeeks}주 동안 하루하루 쌓인 커밋`}</Text>
         <Text x={X(6) + 26} y={Y(0) + 76} size={17} weight={500} fill={T.muted}>하루 한 칸, 높을수록 커밋이 많은 날</Text>
         <Skyline cx={X(6) + Wd(6) / 2} bottom={Y(0) + Hd(5) - 28} s={26} zmax={160} />
       </Tile>
@@ -124,8 +126,8 @@ const Desktop = () => {
       </Tile>
       <Tile x={X(0)} y={Y(5)} w={Wd(8)} h={Hd(2)}>
         <Text x={X(0) + 28} y={Y(5) + 50} size={24} weight={800}>{profile.mold.servicesTitle}</Text>
-        {profile.mold.services.map((s, i) => (
-          <Chip key={s} x={X(0) + 28 + (i % 3) * 252} y={Y(5) + 72 + Math.floor(i / 3) * 54} w={238} h={44} size={19}>{s}</Chip>
+        {allServices.map((s, i) => (
+          <Chip key={s} x={X(0) + 28 + (i % 4) * 186} y={Y(5) + 66 + Math.floor(i / 4) * 38} w={176} h={32} size={16}>{s}</Chip>
         ))}
       </Tile>
       <Tile x={X(8)} y={Y(5)} w={Wd(4)} h={Hd(2)}>
@@ -144,8 +146,8 @@ const Desktop = () => {
       </Tile>
       <Tile x={X(3)} y={Y(7)} w={Wd(4)} h={Hd(2)}>
         <Text x={X(3) + 24} y={Y(7) + 50} size={22} weight={800}>공통 코어</Text>
-        <Text x={X(3) + 24} y={Y(7) + 112} size={36} weight={900}>0.1.0 → 0.1.115</Text>
-        <Text x={X(3) + 24} y={Y(7) + 148} size={17} fill={T.muted}>4주, DB 이관 147개, 7개 패키지</Text>
+        <Text x={X(3) + 24} y={Y(7) + 112} size={36} weight={900}>0.1.0 → 0.1.221</Text>
+        <Text x={X(3) + 24} y={Y(7) + 148} size={17} fill={T.muted}>8주, DB 이관 332개, 8개 패키지</Text>
       </Tile>
       <Tile x={X(7)} y={Y(7)} w={Wd(5)} h={Hd(2)} fill={T.accent}>
         <Text x={X(7) + 30} y={Y(7) + 64} size={32} weight={900} fill={T.accentInk}>채용과 협업 문의</Text>
@@ -172,7 +174,7 @@ const Mobile = () => {
         ))}
       </Tile>
       <Tile x={m} y={ySky} w={w} h={440} fill={T.surface2}>
-        <Text x={m + 28} y={ySky + 52} size={28} weight={800}>12주 동안 쌓인 커밋</Text>
+        <Text x={m + 28} y={ySky + 52} size={28} weight={800}>{`${nWeeks}주 동안 쌓인 커밋`}</Text>
         <Text x={m + 28} y={ySky + 88} size={21} weight={500} fill={T.muted}>하루 한 칸, 높을수록 많은 날</Text>
         <Skyline cx={W / 2} bottom={ySky + 440 - 24} s={23} zmax={150} label={21} />
       </Tile>
@@ -186,8 +188,8 @@ const Mobile = () => {
       </Tile>
       <Tile x={m} y={ySvc} w={w} h={330}>
         <Text x={m + 28} y={ySvc + 56} size={30} weight={800}>{profile.mold.servicesTitle}</Text>
-        {profile.mold.services.map((s, i) => (
-          <Chip key={s} x={m + 28 + (i % 2) * ((w - 56 - 12) / 2 + 12)} y={ySvc + 84 + Math.floor(i / 2) * 76} w={(w - 56 - 12) / 2} h={64} size={25}>{s}</Chip>
+        {allServices.map((s, i) => (
+          <Chip key={s} x={m + 28 + (i % 3) * ((w - 56 - 24) / 3 + 12)} y={ySvc + 84 + Math.floor(i / 3) * 60} w={(w - 56 - 24) / 3} h={50} size={20}>{s}</Chip>
         ))}
       </Tile>
       <Tile x={m} y={yDep} w={w} h={190}>
@@ -205,8 +207,8 @@ const Mobile = () => {
       </Tile>
       <Tile x={m + half + g} y={yCard} w={half} h={200}>
         <Text x={m + half + g + 24} y={yCard + 52} size={24} weight={800}>공통 코어</Text>
-        <Text x={m + half + g + 24} y={yCard + 112} size={32} weight={900}>0.1.115</Text>
-        <Text x={m + half + g + 24} y={yCard + 152} size={20} fill={T.muted}>4주, 7개 패키지</Text>
+        <Text x={m + half + g + 24} y={yCard + 112} size={32} weight={900}>0.1.221</Text>
+        <Text x={m + half + g + 24} y={yCard + 152} size={20} fill={T.muted}>8주, 8개 패키지</Text>
       </Tile>
       <Tile x={m} y={yCta} w={w} h={170} fill={T.accent}>
         <Text x={m + 30} y={yCta + 70} size={36} weight={900} fill={T.accentInk}>채용과 협업 문의</Text>
